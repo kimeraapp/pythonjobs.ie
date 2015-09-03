@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Python Jobs</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <style media="screen">
+    .mtop-40 {
+      margin-top: 80px;
+    }
+  </style>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Python Jobs</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Post a Job</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container mtop-40">
+    <div class="row">
+      <form method="post" id="postJobForm" class="genForm">
+        <label for="job_title">Position Title
+          <span class="red">*</span>
+        </label>
+        <input type="text" size="30" name="job[title]" id="job_title">
+        <br>
+        <label for="job_description">Description
+          <span class="red">*</span>
+        </label>
+        <textarea rows="10" onkeyup="validateDescription();" name="job[description]" id="job_description" cols="40"></textarea>
+        <br>
+        <!--span class="fieldMsg">Only
+          <strong>ul, ol, p, strong, h3</strong> HTML tags are allowed. Use line breaks for paragraphs.
+          <strong id="description-count">3000</strong> characters remaining.</span-->
+        <label for="job_job_type">Job Type
+          <span class="red">*</span>
+        </label>
+        <select name="job[job_type]" id="job_job_type">
+          <option selected="selected" value="0">Full Time</option>
+          <option value="1">Part Time</option>
+          <option value="1">Contractor</option>
+          <option value="1">Freelance</option>
+          <option value="1">Internship</option>
+        </select>
+        <br>
+        <label for="job_location">Location
+          <span class="red">*</span>
+        </label>
+        <select name="job[location]" id="job_location">
+          <option value=""></option>
+          <option value="3">Antrim</option>
+          <option value="4">Armagh</option>
+          <option value="5">Carlow</option>
+          <option value="6">Cavan</option>
+          <option value="7">Clare</option>
+          <option value="8">Cork</option>
+          <option value="9">Derry</option>
+          <option value="10">Donegal</option>
+          <option value="11">Down</option>
+          <option value="12">Dublin</option>
+          <option value="13">Fermanagh</option>
+          <option value="14">Galway</option>
+          <option value="15">Kerry</option>
+          <option value="16">Kildare</option>
+          <option value="17">Kilkenny</option>
+          <option value="18">Laois</option>
+          <option value="19">Leitrim</option>
+          <option value="20">Limerick</option>
+          <option value="21">Longford</option>
+          <option value="22">Louth</option>
+          <option value="23">Mayo</option>
+          <option value="24">Meath</option>
+          <option value="25">Monaghan</option>
+          <option value="26">Offaly</option>
+          <option value="2">Other</option>
+          <option value="27">Roscommon</option>
+          <option value="28">Sligo</option>
+          <option value="29">Tipperary</option>
+          <option value="30">Tyrone</option>
+          <option value="31">Waterford</option>
+          <option value="32">Westmeath</option>
+          <option value="33">Wexford</option>
+          <option value="34">Wicklow</option>
+          <option value="1">Work from home</option>
+        </select>
+        <br>
+        <label for="job_company">Company Name
+          <span class="red">*</span>
+        </label>
+        <input type="text" size="30" name="job[company]" id="job_company">
+        <br>
+        <label for="job_company_url">Company Website</label>
+        <input type="text" value="http://" size="30" name="job[company_url]" id="job_company_url">
+        <br>
+        <label for="job_how_to_apply">How to apply</label>:
+        <input type="text" size="30" name="job[how_to_apply]" id="job_how_to_apply">
+        <br>
+        <label for="job_company_email">Your Email:</label>
+        <input type="text" size="30" name="job[company_email]" id="company_email">
+        <br>
+        *This will remain private* - Please use a real email, you won't be able to edit the job without one.
+      </form>
+
+
+
+
+
+
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+
+
+
+      <div class="col-md-9">
+
+
+
+
+      </div>
+    </div>
+    <hr>
+    <footer>
+      <p>&copy; Python Jobs 2015</p>
+    </footer>
+  </div>
+  <!-- /container -->
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+
+</html>

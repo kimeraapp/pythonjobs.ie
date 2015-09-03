@@ -1,0 +1,35 @@
+- model: jobs.job
+  pk: 1
+  fields:
+    title: "First Job" 
+    description: "This is the first job"
+    company: "Company 1"
+    url: "www.company1.test"
+- model: jobs.job
+  pk: 2
+  fields:
+    title: "Second Job" 
+    description: "This is the second job"
+    company: "Company 2"
+    url: "www.company2.test"
+- model: jobs.job
+  pk: 3
+  fields:
+    title: "Third Job" 
+    description: "This is the third job"
+    company: "Company 3"
+    url: "www.company3.test"
+- model: jobs.job
+  pk: 4
+  fields:
+    title: "Fourth Job" 
+    description: "This is the fourth job"
+    company: "Company 4"
+    url: "www.company4.test"
+- model: jobs.job
+  pk: 5
+  fields:
+    title: "Fifth Job" 
+    description: "This is the fifth job"
+    company: "Company 5"
+    url: "www.company5.test"
