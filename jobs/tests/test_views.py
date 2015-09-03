@@ -32,3 +32,11 @@ class TestJob(TestCase):
     def test_show_template(self):
         response = self.client.get(reverse("job-show", args=[self.job.pk]))
         self.assertTemplateUsed(response, "show.html")
+
+    def test_new_returns_200(self):
+        response = self.client.get(reverse("job-new"))
+        self.assertEquals(response.status_code, 200)
+
+    def test_new_template(self):
+        response = self.client.get(reverse("job-new"))
+        self.assertTemplateUsed(response, "new.html")
