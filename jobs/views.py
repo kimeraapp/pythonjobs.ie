@@ -5,6 +5,7 @@ from jobs.models import Job
 class IndexView(generic.ListView):
     model = Job
     template_name = "index.html"
+    context_object_name = "jobs"
 
 
 class ShowView(generic.DetailView):
