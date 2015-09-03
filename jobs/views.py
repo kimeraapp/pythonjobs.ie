@@ -10,3 +10,9 @@ class IndexView(generic.ListView):
 class ShowView(generic.DetailView):
     model = Job
     template_name = "show.html"
+
+
+class NewView(generic.CreateView):
+    model = Job
+    fields = []
+    template_name = "new.html"
