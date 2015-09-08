@@ -15,5 +15,7 @@ class ShowView(generic.DetailView):
 
 class NewView(generic.CreateView):
     model = Job
-    fields = []
+    fields = ['company_name', 'website', 'category', 'location', 'position',
+              'description', 'email', 'phone', 'external_link', 'status']
     template_name = "new.html"
+    success_url = "/"

@@ -1,22 +1,22 @@
 <form method="post" id="postJobForm" class="genForm">
   {% csrf_token %}
-  <label for="job_title">Position Title
+  <label for="position">Position Title
     <span class="red">*</span>
   </label>
-  <input type="text" size="30" name="job[title]" id="job_title">
+  <input type="text" size="30" name="position" id="job_title">
   <br>
-  <label for="job_description">Description
+  <label for="description">Description
     <span class="red">*</span>
   </label>
-  <textarea rows="10" onkeyup="validateDescription();" name="job[description]" id="job_description" cols="40"></textarea>
+  <textarea rows="10" onkeyup="validateDescription();" name="description" id="job_description" cols="40"></textarea>
   <br>
   <!--span class="fieldMsg">Only
     <strong>ul, ol, p, strong, h3</strong> HTML tags are allowed. Use line breaks for paragraphs.
     <strong id="description-count">3000</strong> characters remaining.</span-->
-  <label for="job_job_type">Job Type
+  <label for="category">Job Type
     <span class="red">*</span>
   </label>
-  <select name="job[job_type]" id="job_job_type">
+  <select name="category" id="job_job_type">
     <option selected="selected" value="0">Full Time</option>
     <option value="1">Part Time</option>
     <option value="1">Contractor</option>
@@ -24,10 +24,10 @@
     <option value="1">Internship</option>
   </select>
   <br>
-  <label for="job_location">Location
+  <label for="location">Location
     <span class="red">*</span>
   </label>
-  <select name="job[location]" id="job_location">
+  <select name="location" id="job_location">
     <option value=""></option>
     <option value="3">Antrim</option>
     <option value="4">Armagh</option>
@@ -65,19 +65,19 @@
     <option value="1">Work from home</option>
   </select>
   <br>
-  <label for="job_company">Company Name
+  <label for="company_name">Company Name
     <span class="red">*</span>
   </label>
-  <input type="text" size="30" name="job[company]" id="job_company">
+  <input type="text" size="30" name="company_name" id="company_name">
   <br>
-  <label for="job_company_url">Company Website</label>
-  <input type="text" value="http://" size="30" name="job[url]" id="job_company_url">
+  <label for="website">Company Website</label>
+  <input type="text" value="http://" size="30" name="website" id="website">
   <br>
   <label for="job_how_to_apply">How to apply</label>:
   <input type="text" size="30" name="job[how_to_apply]" id="job_how_to_apply">
   <br>
-  <label for="job_company_email">Your Email:</label>
-  <input type="text" size="30" name="job[company_email]" id="company_email">
+  <label for="email">Your Email:</label>
+  <input type="text" size="30" name="email" id="company_email">
   <br>
   *This will remain private* - Please use a real email, you won't be able to edit the job without one.
   <input type="submit" name="submit"/>
