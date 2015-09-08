@@ -34,7 +34,7 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav pull-right">
-          <li class="active"><a href="post-jobs.html">Post a Job</a></li>
+          <li class="active"><a href="{% url 'job-new' %}">Post a Job</a></li>
         </ul>
       </div>
     </div>
@@ -48,7 +48,7 @@
         Use it as a starting point to create something more unique.</p>
       <p>
         <a class="btn btn-primary btn-lg"
-          href="post-jobs.html" role="button">Post a Job</a>
+          href="{% url 'job-new' %}" role="button">Post a Job</a>
       </p>
     </div>
   </div>
