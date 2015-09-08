@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.test import Client
 from django.core.urlresolvers import reverse
+from django.forms.models import model_to_dict
 from jobs.models import Job
 
 
@@ -8,10 +9,13 @@ class TestJob(TestCase):
     def setUp(self):
         self.client = Client()
         self.job = Job()
-        self.job.title = "test"
-        self.job.company = "company test"
-        self.job.url = "pythonjobs.ie"
-        self.description = "Testing"
+        self.job.position = "test"
+        self.job.company_name = "company test"
+        self.job.website = "pythonjobs.ie"
+        self.job.category = "full"
+        self.job.description = "Testing"
+        self.job.email = "test@test.com"
+        self.job.location = "Testing"
         self.job.save()
 
     def testDown(self):
@@ -40,3 +44,9 @@ class TestJob(TestCase):
     def test_new_template(self):
         response = self.client.get(reverse("job-new"))
         self.assertTemplateUsed(response, "new.html")
+
+    def test_create_new_job(self):
+        self.job.pk = 0
+        params = model_to_dict(self.job)
+        response = self.client.post(reverse("job-new"), params)
+        self.assertEquals(response.status_code, 302)
