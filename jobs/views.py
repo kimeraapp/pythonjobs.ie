@@ -11,6 +11,7 @@ class IndexView(generic.ListView):
 class ShowView(generic.DetailView):
     model = Job
     template_name = "show.html"
+    context_object_name = "job"
 
 
 class NewView(generic.CreateView):

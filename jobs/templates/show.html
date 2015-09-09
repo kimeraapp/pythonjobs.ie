@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="margin-top:50px;">
+    <!--div><a href="/">Back</a></div-->
+    <br />
+    <div>
+        {{ job.position }} at {{ job.company_name }}
+        <br />
+        Website: {{ job.website }}<br />
+        Type: {{ job.category }}<br />
+        Location: {{ job.location }}<br />
+        Posted: {{ job.created_at }}<br />
+        Phone: {{ job.phone }}<br />
+        <br />
+        Description: {{ job.description }}<br />
+        {% if job.external_link != '' %}
+            <a href="{{ job.external_link }}">Apply</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
