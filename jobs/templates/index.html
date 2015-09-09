@@ -1,7 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>This is Python Jobs</h1>
+    <p>This is a template for a simple marketing or informational website.
+      It includes a large callout called a jumbotron and three supporting pieces of content.
+      Use it as a starting point to create something more unique.</p>
+    <p>
+      <a class="btn btn-primary btn-lg"
+        href="{% url 'job-new' %}" role="button">Post a Job</a>
+    </p>
+  </div>
+</div>
+
 <div class="row">
   {% for job in jobs %}
+  <a href="jobs/{{ job.id }}">
   <div class="col-xs-12 col-sm-4 col-md-3">
     <article class="entry">
       <h2>{{ job.position }}</h2>
@@ -12,6 +27,7 @@
       <span class="entry-new">{{ job.description }}</span>
     </article>
   </div>
+  </a>
   {% endfor %}
 </div>
 {% endblock %}
