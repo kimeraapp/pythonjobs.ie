@@ -1,0 +1,14 @@
+  1 language: python
+  2 python:
+  3   - "3.4"
+  4 services: postgres
+  5 env:
+  6   - DJANGO=1.8
+  7 before_install:
+  8   - export DATABASE_URL=postgres://postgres@localhost/pythonjobs
+  9 install:
+ 10   pip install -r requirements.txt
+ 11 before_script:
+ 12   - psql -c "CREATE DATABASE pythonjobs;" -U postgres
+ 13 script:
+ 14   - python manage.py test
