@@ -43,11 +43,12 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav pull-right">
-          <li class="active"><a href="jobs/new">Post a Job</a></li>
+          <li class="active"><a href="{% url 'job-new' %}">Post a Job</a></li>
         </ul>
       </div>
     </div>
   </nav>
+  <div class="container">
     {% block content %}{% endblock %}
     <hr>
     <footer>

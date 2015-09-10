@@ -10,27 +10,27 @@
       <div class="col-md-9">
         <form method="post" id="postJobForm" class="form-horizontal">
           <div class="form-group">
-            <label for="job_title" class="col-sm-2 control-label">Position Title
+            <label for="position" class="col-sm-2 control-label">Position Title
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" name="job[title]" id="job_title">
+              <input class="form-control" type="text" name="position" id="position">
             </div>
           </div>
           <div class="form-group">
-            <label for="job_description" class="col-sm-2 control-label">Description
+            <label for="description" class="col-sm-2 control-label">Description
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <textarea class="form-control" rows="10" onkeyup="validateDescription();" name="job[description]" id="job_description" cols="40"></textarea>
+              <textarea class="form-control" rows="10" onkeyup="validateDescription();" name="job[description]" id="description" cols="40"></textarea>
             </div>
           </div>
           <div class="form-group">
-            <label for="job_job_type" class="col-sm-2 control-label">Job Type
+            <label for="category" class="col-sm-2 control-label">Job Type
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <select class="form-control" name="job[job_type]" id="job_job_type">
+              <select class="form-control" name="category" id="category">
                 <option selected="selected" value="0">Full Time</option>
                 <option value="1">Part Time</option>
                 <option value="1">Contractor</option>
@@ -40,11 +40,11 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="job_location" class="col-sm-2 control-label">Location
+            <label for="location" class="col-sm-2 control-label">Location
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <select class="form-control" name="job[location]" id="job_location">
+              <select class="form-control" name="location" id="location">
                 <option value=""></option>
                 <option value="3">Antrim</option>
                 <option value="4">Armagh</option>
@@ -84,17 +84,17 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="job_company" class="col-sm-2 control-label">Company Name
+            <label for="company_name" class="col-sm-2 control-label">Company Name
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" size="30" name="job[company]" id="job_company">
+              <input class="form-control" type="text" size="30" name="company_name" id="company_name">
             </div>
           </div>
           <div class="form-group">
-            <label for="job_company_url" class="col-sm-2 control-label">Company Website</label>
+            <label for="company_name_url" class="col-sm-2 control-label">Company Website</label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" value="http://" size="30" name="job[company_url]" id="job_company_url">
+              <input class="form-control" type="text" value="http://" size="30" name="job[company_url]" id="company_name_url">
             </div>
           </div>
           <div class="form-group">
@@ -104,7 +104,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="job_company_email" class="col-sm-2 control-label">Your Email:</label>
+            <label for="company_name_email" class="col-sm-2 control-label">Your Email:</label>
             <div class="col-sm-10">
               <input class="form-control" type="text" size="30" name="job[company_email]" id="company_email">
             </div>
@@ -117,4 +117,4 @@
       </div>
     </div>
   </div
-  {% endblock %}
+  {% endblock
