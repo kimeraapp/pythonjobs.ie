@@ -1,89 +1,120 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="margin-top:80px;">
-<form method="post" id="postJobForm" class="genForm">
-  {% csrf_token %}
-  <label for="position">Position Title
-    <span class="red">*</span>
-  </label>
-  <input type="text" size="30" name="position" id="job_title">
-  <br>
-  <label for="description">Description
-    <span class="red">*</span>
-  </label>
-  <textarea rows="10" onkeyup="validateDescription();" name="description" id="job_description" cols="40"></textarea>
-  <br>
-  <!--span class="fieldMsg">Only
-    <strong>ul, ol, p, strong, h3</strong> HTML tags are allowed. Use line breaks for paragraphs.
-    <strong id="description-count">3000</strong> characters remaining.</span-->
-  <label for="category">Job Type
-    <span class="red">*</span>
-  </label>
-  <select name="category" id="job_job_type">
-    <option selected="selected" value="0">Full Time</option>
-    <option value="1">Part Time</option>
-    <option value="1">Contractor</option>
-    <option value="1">Freelance</option>
-    <option value="1">Internship</option>
-  </select>
-  <br>
-  <label for="location">Location
-    <span class="red">*</span>
-  </label>
-  <select name="location" id="job_location">
-    <option value=""></option>
-    <option value="3">Antrim</option>
-    <option value="4">Armagh</option>
-    <option value="5">Carlow</option>
-    <option value="6">Cavan</option>
-    <option value="7">Clare</option>
-    <option value="8">Cork</option>
-    <option value="9">Derry</option>
-    <option value="10">Donegal</option>
-    <option value="11">Down</option>
-    <option value="12">Dublin</option>
-    <option value="13">Fermanagh</option>
-    <option value="14">Galway</option>
-    <option value="15">Kerry</option>
-    <option value="16">Kildare</option>
-    <option value="17">Kilkenny</option>
-    <option value="18">Laois</option>
-    <option value="19">Leitrim</option>
-    <option value="20">Limerick</option>
-    <option value="21">Longford</option>
-    <option value="22">Louth</option>
-    <option value="23">Mayo</option>
-    <option value="24">Meath</option>
-    <option value="25">Monaghan</option>
-    <option value="26">Offaly</option>
-    <option value="2">Other</option>
-    <option value="27">Roscommon</option>
-    <option value="28">Sligo</option>
-    <option value="29">Tipperary</option>
-    <option value="30">Tyrone</option>
-    <option value="31">Waterford</option>
-    <option value="32">Westmeath</option>
-    <option value="33">Wexford</option>
-    <option value="34">Wicklow</option>
-    <option value="1">Work from home</option>
-  </select>
-  <br>
-  <label for="company_name">Company Name
-    <span class="red">*</span>
-  </label>
-  <input type="text" size="30" name="company_name" id="company_name">
-  <br>
-  <label for="website">Company Website</label>
-  <input type="text" value="http://" size="30" name="website" id="website">
-  <br>
-  <label for="job_how_to_apply">How to apply</label>:
-  <input type="text" size="30" name="job[how_to_apply]" id="job_how_to_apply">
-  <br>
-  <label for="email">Your Email:</label>
-  <input type="text" size="30" name="email" id="company_email">
-  <br>
-  *This will remain private* - Please use a real email, you won't be able to edit the job without one.
-  <input type="submit" name="submit"/>
-</form>
-</div>
-{% endblock %}
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Find the betters</h1>
+    </div>
+  </div>
+  <div class="container mtop-40">
+    <div class="row">
+      <div class="col-md-9">
+        <form method="post" id="postJobForm" class="form-horizontal">
+          <div class="form-group">
+            <label for="position" class="col-sm-2 control-label">Position Title
+              <span class="red">*</span>
+            </label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" name="position" id="position">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">Description
+              <span class="red">*</span>
+            </label>
+            <div class="col-sm-10">
+              <textarea class="form-control" rows="10" onkeyup="validateDescription();" name="job[description]" id="description" cols="40"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="category" class="col-sm-2 control-label">Job Type
+              <span class="red">*</span>
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" name="category" id="category">
+                <option selected="selected" value="0">Full Time</option>
+                <option value="1">Part Time</option>
+                <option value="1">Contractor</option>
+                <option value="1">Freelance</option>
+                <option value="1">Internship</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="location" class="col-sm-2 control-label">Location
+              <span class="red">*</span>
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" name="location" id="location">
+                <option value=""></option>
+                <option value="3">Antrim</option>
+                <option value="4">Armagh</option>
+                <option value="5">Carlow</option>
+                <option value="6">Cavan</option>
+                <option value="7">Clare</option>
+                <option value="8">Cork</option>
+                <option value="9">Derry</option>
+                <option value="10">Donegal</option>
+                <option value="11">Down</option>
+                <option value="12">Dublin</option>
+                <option value="13">Fermanagh</option>
+                <option value="14">Galway</option>
+                <option value="15">Kerry</option>
+                <option value="16">Kildare</option>
+                <option value="17">Kilkenny</option>
+                <option value="18">Laois</option>
+                <option value="19">Leitrim</option>
+                <option value="20">Limerick</option>
+                <option value="21">Longford</option>
+                <option value="22">Louth</option>
+                <option value="23">Mayo</option>
+                <option value="24">Meath</option>
+                <option value="25">Monaghan</option>
+                <option value="26">Offaly</option>
+                <option value="2">Other</option>
+                <option value="27">Roscommon</option>
+                <option value="28">Sligo</option>
+                <option value="29">Tipperary</option>
+                <option value="30">Tyrone</option>
+                <option value="31">Waterford</option>
+                <option value="32">Westmeath</option>
+                <option value="33">Wexford</option>
+                <option value="34">Wicklow</option>
+                <option value="1">Work from home</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="company_name" class="col-sm-2 control-label">Company Name
+              <span class="red">*</span>
+            </label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" size="30" name="company_name" id="company_name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="company_name_url" class="col-sm-2 control-label">Company Website</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" value="http://" size="30" name="job[company_url]" id="company_name_url">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="job_how_to_apply" class="col-sm-2 control-label">How to apply</label>:
+            <div class="col-sm-10">
+              <input class="form-control" type="text" size="30" name="job[how_to_apply]" id="job_how_to_apply">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="company_name_email" class="col-sm-2 control-label">Your Email:</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" size="30" name="job[company_email]" id="company_email">
+            </div>
+          </div>
+            *This will remain private* - Please use a real email, you won't be able to edit the job without one.
+        </form>
+      </div>
+      <div class="sidebar col-sm-3">
+
+      </div>
+    </div>
+  </div
+  {% endblock
