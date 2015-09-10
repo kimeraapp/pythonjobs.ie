@@ -9,6 +9,7 @@
     <div class="row">
       <div class="col-md-9">
         <form method="post" id="postJobForm" class="form-horizontal">
+          {% csrf_token %}
           <div class="form-group">
             <label for="position" class="col-sm-2 control-label">Position Title
               <span class="red">*</span>
@@ -22,7 +23,7 @@
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <textarea class="form-control" rows="10" onkeyup="validateDescription();" name="job[description]" id="description" cols="40"></textarea>
+              <textarea class="form-control" rows="10" onkeyup="validateDescription();" name="description" id="description" cols="40"></textarea>
             </div>
           </div>
           <div class="form-group">
@@ -92,24 +93,25 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="company_name_url" class="col-sm-2 control-label">Company Website</label>
+            <label for="website" class="col-sm-2 control-label">Company Website</label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" value="http://" size="30" name="job[company_url]" id="company_name_url">
+              <input class="form-control" type="text" value="http://" size="30" name="website" id="website">
             </div>
           </div>
           <div class="form-group">
-            <label for="job_how_to_apply" class="col-sm-2 control-label">How to apply</label>:
+            <label for="external_link" class="col-sm-2 control-label">How to apply</label>:
             <div class="col-sm-10">
-              <input class="form-control" type="text" size="30" name="job[how_to_apply]" id="job_how_to_apply">
+              <input class="form-control" type="text" size="30" name="external_link" id="external_link">
             </div>
           </div>
           <div class="form-group">
-            <label for="company_name_email" class="col-sm-2 control-label">Your Email:</label>
+            <label for="email" class="col-sm-2 control-label">Your Email:</label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" size="30" name="job[company_email]" id="company_email">
+              <input class="form-control" type="text" size="30" name="email" id="email">
             </div>
           </div>
             *This will remain private* - Please use a real email, you won't be able to edit the job without one.
+            <input type="submit" />
         </form>
       </div>
       <div class="sidebar col-sm-3">
@@ -117,4 +119,4 @@
       </div>
     </div>
   </div
-  {% endblock
+  {% endblock %}
