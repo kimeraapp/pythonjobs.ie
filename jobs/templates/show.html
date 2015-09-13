@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="margin-top:50px;">
-    <!--div><a href="/">Back</a></div-->
-    <br />
-    <div>
-        {{ job.position }} at {{ job.company_name }}
+<div class="jumbotron">
+  <div class="container">
+    <h1>Find the best <company></company></h1>
+  </div>
+</div>
+<div class="container mtop-40">
+  <div class="row">
+    <div class="col-md-9">
+        <h3>{{ job.position }} at {{ job.company_name }}</h3>
         <br />
-        Website: {{ job.website }}<br />
-        Type: {{ job.category }}<br />
-        Location: {{ job.location }}<br />
-        Posted: {{ job.created_at }}<br />
-        Phone: {{ job.phone }}<br />
+        <span class="bold">Website:</span> <a href="{{ job.website }}">{{ job.website }}</a><br />
+        <span class="bold">Category:</span {{ job.category }}<br />
+        <span class="bold">Location:</span> {{ job.location }}<br />
+        <span class="bold">Posted:</span> {{ job.created_at }}<br />
+        <span class="bold">Phone:</span> {{ job.phone }}<br />
+        <span class="bold">Email:</span> {{ job.email }}<br />
         <br />
-        Description: {{ job.description }}<br />
+        <span class="bold">Description:</span><br /> {{ job.description }}<br />
+        <br />
         {% if job.external_link != '' %}
             <a href="{{ job.external_link }}">Apply</a>
         {% endif %}
