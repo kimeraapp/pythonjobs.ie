@@ -3,9 +3,7 @@
 <div class="jumbotron">
   <div class="container">
     <h1>This is Python Jobs</h1>
-    <p>This is a template for a simple marketing or informational website.
-      It includes a large callout called a jumbotron and three supporting pieces of content.
-      Use it as a starting point to create something more unique.</p>
+    <p>Find or post Python related jobs available in Ireland for free and without having to register.</p>
     <p>
       <a class="btn btn-primary btn-lg"
         href="{% url 'job-new' %}" role="button">Post a Job</a>
@@ -20,10 +18,10 @@
     <article class="entry">
       <h2>{{ job.position }}</h2>
       <span class="entry-company">
-      <strong>{{ job.company_name }}</strong> (Oklahoma City, OK)
+      <strong>{{ job.company_name }}</strong> ({{ job.location }})
       </span>
-      <span class="entry-type">Fulltime</span>
-      <span class="entry-new">{{ job.description }}</span>
+      <span class="entry-category">{{ job.category }}</span>
+      <span class="entry-info">{{ job.description }}</span>
     </article>
   </div>
   </a>

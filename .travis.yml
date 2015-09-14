@@ -1,14 +1,20 @@
 language: python
 python:
-  - "3.4"
+- '3.4'
 services: postgres
 env:
-  - DJANGO=1.8
+- DJANGO=1.8
 before_install:
-  - export DATABASE_URL=postgres://postgres@localhost/pythonjobs
-install:
-  pip install -r requirements.txt
+- export DATABASE_URL=postgres://postgres@localhost/pythonjobs
+install: pip install -r requirements.txt
 before_script:
-  - psql -c "CREATE DATABASE pythonjobs;" -U postgres
+- psql -c "CREATE DATABASE pythonjobs;" -U postgres
 script:
-  - python manage.py test
+- python manage.py test
+deploy:
+  provider: heroku
+  api_key:
+    secure: kFYYiKjMaEk05mAN8AS3G+xA3DzpLF0A3ZqVQSFFJOkYvOWpAHPYOohDTtYj2umK/NT5ZfbttfJZQwXBb8Jp/a7CscwWcSGqOwTOg7Fe/5TJ0J7BY2DRsb1vEG+BNpB4cSfqjMlCMdmhz7omO67aSaG3o8dNcshduv6Hex3EOfS6E4GcDXeJR5x8inJVp9e/ZIv+bop2LWpew3kjh/Ei6rsTPGhVN40T/PvgbtUqogP4hLL/OcitNIenDJEvTjwCb4SAlwPZDl14NpFgqe1RXIbcJDnsg8wpRYCKKiwH6faL6qFpAm9xQMMMa1W1usJ/n5shk+d13nxmHjOhunTotusVRQ2VKqNv+dDLkWI0iHtqev/sqRFVWUGGhmw4EExdWdenc48/oYy2krePvHRwHqsAmYqbeacDCtdE2m+YdK2bTOvV4gZEcl35lc4Iqo6DrlAvKi/DHZO19Yz8zwWDyEC9/2D96Myydw8B13jHyF4bjVIXZa2WMiM71pY6vVLMAYwme30o8ezCo+ZqLcIqlgu6ZvhxTj67NbSdnn2VYpB8GIBqhEFhf+DKUoYNb/VpO/oSaAgDDgXidY8lLtnm7ozZLlmaDeCtUek5O1zZ+JcC24CuDKaOqbXwB3ifgF61s6Bfu9nqNfLgdTKsOErDeHnZJdQxnUgC0hrb1Hoc2X8=
+  app: pythonjobs
+  on:
+    repo: kimeraapp/pythonjobs.ie
