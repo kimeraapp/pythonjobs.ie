@@ -1,0 +1,22 @@
+.jumbotron  {
+  background-image: url("/static/images/bg-header.jpg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+}
+.logo {
+  display: inline !important;
+  height: 30px;
+  vertical-align: middle;
+  font-weight: 600;
+}
+.blue {
+  color: #3770a0;
+}
+.orange {
+  color: #ffd94a;
+}
+.bold {
+    font-weight: 600;
+}
