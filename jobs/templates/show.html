@@ -11,9 +11,9 @@
         <h3>{{ job.position }} at {{ job.company_name }}</h3>
         <br />
         <span class="bold">Website:</span> <a href="{{ job.website }}">{{ job.website }}</a><br />
-        <span class="bold">Category:</span {{ job.category }}<br />
+        <span class="bold">Category:</span> {{ job.category }}<br />
         <span class="bold">Location:</span> {{ job.location }}<br />
-        <span class="bold">Posted:</span> {{ job.created_at }}<br />
+        <span class="bold">Posted:</span> {{ job.created_at|date:"F dS" }}<br />
         <span class="bold">Phone:</span> {{ job.phone }}<br />
         <span class="bold">Email:</span> {{ job.email }}<br />
         <br />
