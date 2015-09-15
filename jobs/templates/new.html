@@ -9,29 +9,34 @@
     <div class="row">
       <div class="col-md-9">
         <form method="post" id="postJobForm" class="form-horizontal">
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-2">
+              <p><strong><span class="text-danger">*</span> Email is requitext-danger to edit the job details.</strong></p>
+            </div>
+          </div>
           {% csrf_token %}
           <div class="form-group">
             <label for="position" class="col-sm-2 control-label">Position
-              <span class="red">*</span>
+              <span class="text-danger">*</span>
             </label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" name="position" id="position" required>
+              <input class="form-control" type="text" name="position" id="position" requitext-danger>
             </div>
           </div>
           <div class="form-group">
             <label for="description" class="col-sm-2 control-label">Description
-              <span class="red">*</span>
+              <span class="text-danger">*</span>
             </label>
             <div class="col-sm-10">
-              <textarea class="form-control" rows="18" name="description" id="description" cols="40" required></textarea>
+              <textarea class="form-control" rows="18" name="description" id="description" cols="40" requitext-danger></textarea>
             </div>
           </div>
           <div class="form-group">
             <label for="category" class="col-sm-2 control-label">Category
-              <span class="red">*</span>
+              <span class="text-danger">*</span>
             </label>
             <div class="col-sm-10">
-              <select class="form-control" name="category" id="category" required>
+              <select class="form-control" name="category" id="category" requitext-danger>
                 {% for category in categories %}
                     <option value="{{ category }}">{{ category }}</option>
                 {% endfor %}
@@ -40,10 +45,10 @@
           </div>
           <div class="form-group">
             <label for="location" class="col-sm-2 control-label">Location
-              <span class="red">*</span>
+              <span class="text-danger">*</span>
             </label>
             <div class="col-sm-10">
-              <select class="form-control" name="location" id="location" required>
+              <select class="form-control" name="location" id="location" requitext-danger>
                 <option value="Remote">Remote</option>
                 <option disabled>-----</option>
                 {% for city in cities %}
@@ -54,16 +59,16 @@
           </div>
           <div class="form-group">
             <label for="company_name" class="col-sm-2 control-label">Company Name
-              <span class="red">*</span>
+              <span class="text-danger">*</span>
             </label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" size="30" name="company_name" id="company_name" required>
+              <input class="form-control" type="text" size="30" name="company_name" id="company_name" requitext-danger>
             </div>
           </div>
           <div class="form-group">
             <label for="website" class="col-sm-2 control-label">Company Website</label>
             <div class="col-sm-10">
-              <input class="form-control" type="url" value="http://" size="30" name="website" id="website" required>
+              <input class="form-control" type="url" value="http://" size="30" name="website" id="website" requitext-danger>
             </div>
           </div>
           <div class="form-group">
@@ -80,15 +85,17 @@
           </div>
           <div class="form-group">
             <label for="email" class="col-sm-2 control-label">Email
-              <span class="red">*</span>
+              <span class="text-danger">*</span>
             </label>
             <div class="col-sm-10">
-              <input class="form-control" type="email" size="30" name="email" id="email" required>
+              <input class="form-control" type="email" size="30" name="email" id="email" requitext-danger>
             </div>
           </div>
-            *Email is required to edit the job details.<br />
-            <br />
-            <input type="submit" />
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-2">
+              <input class="btn btn-primary" type="submit" value="Let's GO">
+            </div>
+          </div>
         </form>
       </div>
       <div class="sidebar col-sm-3">

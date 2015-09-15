@@ -14,15 +14,14 @@
   <div class="row">
     {% for job in jobs %}
     <a href="jobs/{{ job.id }}">
-    <div class="col-xs-12 col-sm-4 col-md-3">
-      <article class="entry">
-        <h2>{{ job.position }}</h2>
-        <span class="entry-company">
-        <strong>{{ job.company_name }}</strong> ({{ job.location }})
-        </span>
-        <span class="entry-category">{{ job.category }}</span>
-        <span class="entry-info">{{ job.description }}</span>
-      </article>
+    <div class="col-xs-12 col-sm-4 col-md-3 job">
+			<h5 class="job-company">{{ job.company_name }}</h5>
+			<h3 class="job-position">{{ job.position }}</h3>
+			<hr>
+      ({{ job.location }})
+      {{ job.category }}
+
+      {{ job.description }}
     </div>
     </a>
     {% endfor %}

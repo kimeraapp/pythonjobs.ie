@@ -1,4 +1,7 @@
-.jumbotron  {
+body  {
+  font-family: 'Open Sans', sans-serif;
+}
+.jumbotron {
   background-image: url("/static/images/bg-header.jpg");
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -18,5 +21,5 @@
   color: #ffd94a;
 }
 .bold {
-    font-weight: 600;
+  font-weight: 600;
 }
