@@ -14,10 +14,12 @@
         <span class="bold">Category:</span> {{ job.category }}<br />
         <span class="bold">Location:</span> {{ job.location }}<br />
         <span class="bold">Posted:</span> {{ job.created_at|date:"F dS" }}<br />
-        <span class="bold">Phone:</span> {{ job.phone }}<br />
+        {% if job.phone != '' %}
+            <span class="bold">Phone:</span> {{ job.phone }}<br />
+        {% endif %}
         <span class="bold">Email:</span> {{ job.email }}<br />
         <br />
-        <span class="bold">Description:</span><br /> {{ job.description }}<br />
+        <span class="bold">Description:</span><br /> {{ job.description|safe }}<br />
         <br />
         {% if job.external_link != '' %}
             <a href="{{ job.external_link }}">Apply</a>

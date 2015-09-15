@@ -18,5 +18,18 @@
   color: #ffd94a;
 }
 .bold {
-    font-weight: 600;
+  font-weight: 600;
+}
+/*Special case: tiny mce editor area needs to be visible*/
+textarea:required {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  display: block !important;
+  height: 0;
+  resize: none;
+  width: 0;
+  visibility: visible;
+  opacity: 0;
+  overflow: hidden;
 }

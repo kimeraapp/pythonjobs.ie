@@ -13,18 +13,18 @@
 <div class="container">
   <div class="row">
     {% for job in jobs %}
-    <a href="jobs/{{ job.id }}">
-    <div class="col-xs-12 col-sm-4 col-md-3">
-      <article class="entry">
-        <h2>{{ job.position }}</h2>
-        <span class="entry-company">
-        <strong>{{ job.company_name }}</strong> ({{ job.location }})
-        </span>
-        <span class="entry-category">{{ job.category }}</span>
-        <span class="entry-info">{{ job.description }}</span>
-      </article>
-    </div>
-    </a>
+        <a href="jobs/{{ job.id }}">
+            <div class="col-xs-12 col-sm-4 col-md-3">
+              <article class="entry">
+                <h2>{{ job.position }}</h2>
+                <span class="entry-company">
+                <strong>{{ job.company_name }}</strong> ({{ job.location }})
+                </span>
+                <span class="entry-category">{{ job.category }}</span>
+                <span class="entry-info">{{ job.description|safe }}</span>
+              </article>
+            </div>
+        </a>
     {% endfor %}
   </div>
 </div>
