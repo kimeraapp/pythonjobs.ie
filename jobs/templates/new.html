@@ -15,7 +15,7 @@
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" name="position" id="position">
+              <input class="form-control" type="text" name="position" id="position" required>
             </div>
           </div>
           <div class="form-group">
@@ -23,7 +23,7 @@
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <textarea class="form-control" rows="20" name="description" id="description" cols="40"></textarea>
+              <textarea class="form-control" rows="18" name="description" id="description" cols="40" required></textarea>
             </div>
           </div>
           <div class="form-group">
@@ -31,13 +31,10 @@
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <select class="form-control" name="category" id="category">
-                <option selected="selected" value="fulltime">Full Time</option>
-                <option value="parttime">Part Time</option>
-                <option value="contractor">Contractor</option>
-                <option value="freelance">Freelance</option>
-                <option value="internship">Internship</option>
-                <option value="other">Other</option>
+              <select class="form-control" name="category" id="category" required>
+                {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
               </select>
             </div>
           </div>
@@ -46,42 +43,12 @@
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <select class="form-control" name="location" id="location">
-                <option value="0">Remote</option>
+              <select class="form-control" name="location" id="location" required>
+                <option value="Remote">Remote</option>
                 <option disabled>-----</option>
-                <option value="3">Antrim</option>
-                <option value="4">Armagh</option>
-                <option value="5">Carlow</option>
-                <option value="6">Cavan</option>
-                <option value="7">Clare</option>
-                <option value="8">Cork</option>
-                <option value="9">Derry</option>
-                <option value="10">Donegal</option>
-                <option value="11">Down</option>
-                <option value="12">Dublin</option>
-                <option value="13">Fermanagh</option>
-                <option value="14">Galway</option>
-                <option value="15">Kerry</option>
-                <option value="16">Kildare</option>
-                <option value="17">Kilkenny</option>
-                <option value="18">Laois</option>
-                <option value="19">Leitrim</option>
-                <option value="20">Limerick</option>
-                <option value="21">Longford</option>
-                <option value="22">Louth</option>
-                <option value="23">Mayo</option>
-                <option value="24">Meath</option>
-                <option value="25">Monaghan</option>
-                <option value="26">Offaly</option>
-                <option value="27">Roscommon</option>
-                <option value="28">Sligo</option>
-                <option value="29">Tipperary</option>
-                <option value="30">Tyrone</option>
-                <option value="31">Waterford</option>
-                <option value="32">Westmeath</option>
-                <option value="33">Wexford</option>
-                <option value="34">Wicklow</option>
-                <option value="35">Other</option>
+                {% for city in cities %}
+                    <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
               </select>
             </div>
           </div>
@@ -90,25 +57,25 @@
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" size="30" name="company_name" id="company_name">
+              <input class="form-control" type="text" size="30" name="company_name" id="company_name" required>
             </div>
           </div>
           <div class="form-group">
             <label for="website" class="col-sm-2 control-label">Company Website</label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" value="http://" size="30" name="website" id="website">
+              <input class="form-control" type="url" value="http://" size="30" name="website" id="website" required>
             </div>
           </div>
           <div class="form-group">
             <label for="external_link" class="col-sm-2 control-label">Link to job</label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" size="30" name="external_link" id="external_link">
+              <input class="form-control" type="url" size="30" name="external_link" id="external_link">
             </div>
           </div>
           <div class="form-group">
             <label for="phone" class="col-sm-2 control-label">Phone</label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" size="30" name="phone" id="phone">
+              <input class="form-control" type="tel" size="30" name="phone" id="phone" pattern="\+?\d+">
             </div>
           </div>
           <div class="form-group">
@@ -116,7 +83,7 @@
               <span class="red">*</span>
             </label>
             <div class="col-sm-10">
-              <input class="form-control" type="text" size="30" name="email" id="email">
+              <input class="form-control" type="email" size="30" name="email" id="email" required>
             </div>
           </div>
             *Email is required to edit the job details.<br />
