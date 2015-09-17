@@ -101,22 +101,6 @@ textarea:required {
   opacity: 0;
   overflow: hidden;
 }
-
-
-
-
-
-
-
-
-
-
-:nth-child(3n+3)  {
-
-}
-
-
-
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) and (max-width : 767px) {
   .job-box {
