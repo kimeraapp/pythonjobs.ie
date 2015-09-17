@@ -7,6 +7,16 @@ body  {
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;
+  padding: 150px 0 120px;
+}
+.btn.btn-primary, .btn.btn-primary:hover  {
+  padding: 15px 70px;
+  font-weight: 600;
+  background-color: #3770a0;
+  font-size: 24px;
+}
+.btn.btn-primary:hover  {
+    box-shadow: 0 -3px rgba(0, 0, 0, 0.25) inset;
 }
 .logo {
   display: inline !important;
@@ -17,9 +27,47 @@ body  {
 .blue {
   color: #3770a0;
 }
-.orange {
-  color: #ffd94a;
+.yellow {
+  color: #fbc600;
 }
 .bold {
   font-weight: 600;
+}
+.job {
+  color: #000;
+}
+.job-box p  {
+  height: 150px;
+}
+.job-position {
+  font-family: 'Droid Serif', serif;
+  font-weight: bold;
+  margin-top: 0;
+}
+.job hr {
+  margin: 10px 0;
+  width: 20px;
+  border-top: solid 4px;
+}
+.job-category-fulltime  {
+  border-color: #ff00cc;
+  color: #ff00cc;
+}
+.job-category-parttime  {
+  border-color: #ff00cc;
+}
+.job-category-contract  {
+  border-color: #ff00cc;
+}
+.job-category-permanent  {
+  border-color: #ff00cc;
+}
+.job-category-freelance  {
+  border-color: #ff00cc;
+}
+.job-category-internship  {
+  border-color: #ff00cc;
+}
+.job-category-other  {
+  border-color: #ff00cc;
 }
