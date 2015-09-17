@@ -1,7 +1,3 @@
-$(document).ready(function() {
-	$(".job-description").dotdotdot({
-	});
-});
 tinyMCE.init({
   mode: "textareas",
   theme: "advanced",
