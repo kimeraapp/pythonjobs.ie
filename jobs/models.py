@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import signals
-from pythonjobs.services import generate_token
+from pythonjobs.services import generate_token, send_confirmation_mail
 
 class Job(models.Model):
     company_name = models.CharField(max_length=100)
@@ -30,4 +30,8 @@ def token_pre_save(signal, instance, sender, **kwargs):
     instance.token = token;
     instance.status = 1
 
+def mail_post_save(signal, instance, sender, **kwargs):
+    send_confirmation_mail(instance)
+
 signals.pre_save.connect(token_pre_save, sender=Job)
+signals.post_save.connect(mail_post_save, sender=Job)
