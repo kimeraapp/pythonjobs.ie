@@ -1,25 +1,94 @@
-.jumbotron  {
+body  {
+  font-family: 'Open Sans', sans-serif;
+}
+/* Fixing Bootstrap*/
+/* Navbar */
+.navbar-inverse {
+  background: none;
+  border: none;
+}
+.navbar-brand {
+  height: auto;
+}
+
+.jumbotron {
   background-image: url("/static/images/bg-header.jpg");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;
+  padding: 100px 0;
+}
+.btn.btn-primary, .btn.btn-primary:hover  {
+  padding: 15px 70px;
+  font-weight: 600;
+  background-color: #3770a0;
+  font-size: 24px;
+}
+.btn.btn-primary:hover  {
+    box-shadow: 0 -3px rgba(0, 0, 0, 0.25) inset;
 }
 .logo {
   display: inline !important;
-  height: 30px;
+  height: 60px;
   vertical-align: middle;
   font-weight: 600;
 }
 .blue {
   color: #3770a0;
 }
-.orange {
-  color: #ffd94a;
+.yellow {
+  color: #fbc600;
 }
 .bold {
-    font-weight: 600;
+  font-weight: 600;
 }
+.job {
+  color: #000;
+}
+.job-box  {
+  border-right: solid 1px #ccc;
+  margin-bottom: 20px;
+}
+.job-box-inner  {
+  border-bottom: solid 1px #ccc;
+}
+.job-box .job-description  {
+  height: 150px;
+}
+.job-position {
+  font-family: 'Droid Serif', serif;
+  font-weight: bold;
+  margin-top: 0;
+}
+.job hr {
+  margin: 10px 0;
+  width: 20px;
+  border-top: solid 4px;
+}
+.job-category-fulltime  {
+  border-color: #ff00cc;
+  color: #ff00cc;
+}
+.job-category-parttime  {
+  border-color: #ff00cc;
+}
+.job-category-contract  {
+  border-color: #ff00cc;
+}
+.job-category-permanent  {
+  border-color: #ff00cc;
+}
+.job-category-freelance  {
+  border-color: #ff00cc;
+}
+.job-category-internship  {
+  border-color: #ff00cc;
+}
+.job-category-other  {
+  border-color: #ff00cc;
+}
+/*Special case: tiny mce editor area needs to be visible*/
 textarea:required {
   background: transparent;
   border: none;
@@ -31,4 +100,40 @@ textarea:required {
   visibility: visible;
   opacity: 0;
   overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+:nth-child(3n+3)  {
+
+}
+
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) and (max-width : 767px) {
+  .job-box {
+    border: none;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+  .job:nth-child(3n+3) .job-box {
+    border: none;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)  {
+  .job:nth-child(4n+4) .job-box {
+    border: none;
+  }
 }
