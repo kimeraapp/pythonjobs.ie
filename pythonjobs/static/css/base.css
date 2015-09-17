@@ -1,13 +1,23 @@
 body  {
   font-family: 'Open Sans', sans-serif;
 }
+/* Fixing Bootstrap*/
+/* Navbar */
+.navbar-inverse {
+  background: none;
+  border: none;
+}
+.navbar-brand {
+  height: auto;
+}
+
 .jumbotron {
   background-image: url("/static/images/bg-header.jpg");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;
-  padding: 150px 0 120px;
+  padding: 100px 0;
 }
 .btn.btn-primary, .btn.btn-primary:hover  {
   padding: 15px 70px;
@@ -20,7 +30,7 @@ body  {
 }
 .logo {
   display: inline !important;
-  height: 30px;
+  height: 60px;
   vertical-align: middle;
   font-weight: 600;
 }
@@ -36,7 +46,14 @@ body  {
 .job {
   color: #000;
 }
-.job-box p  {
+.job-box  {
+  border-right: solid 1px #ccc;
+  margin-bottom: 20px;
+}
+.job-box-inner  {
+  border-bottom: solid 1px #ccc;
+}
+.job-box .job-description  {
   height: 150px;
 }
 .job-position {
@@ -70,4 +87,53 @@ body  {
 }
 .job-category-other  {
   border-color: #ff00cc;
+}
+/*Special case: tiny mce editor area needs to be visible*/
+textarea:required {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  display: block !important;
+  height: 0;
+  resize: none;
+  width: 0;
+  visibility: visible;
+  opacity: 0;
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+:nth-child(3n+3)  {
+
+}
+
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) and (max-width : 767px) {
+  .job-box {
+    border: none;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) and (max-width : 991px) {
+  .job:nth-child(3n+3) .job-box {
+    border: none;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)  {
+  .job:nth-child(4n+4) .job-box {
+    border: none;
+  }
 }
