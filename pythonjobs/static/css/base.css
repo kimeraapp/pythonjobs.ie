@@ -3,14 +3,13 @@ body  {
 }
 /* Fixing Bootstrap*/
 /* Navbar */
-.navbar-inverse {
-  background: none;
-  border: none;
-}
+
 .navbar-brand {
   height: auto;
 }
-
+.navbar-brand img {
+  margin-right: 10px;
+}
 .jumbotron {
   background-image: url("/static/images/bg-header.jpg");
   background-position: 50% 50%;
@@ -18,6 +17,15 @@ body  {
   background-size: cover;
   color: #fff;
   padding: 100px 0;
+}
+.jumbotron.internal-pages {
+  padding: 40px 0 100px 0;
+}
+.jumbotron h1 {
+  font-weight: 300;
+}
+.jumbotron .btn-primary {
+  margin-top: 30px;
 }
 .btn.btn-primary, .btn.btn-primary:hover  {
   padding: 15px 70px;
@@ -30,9 +38,10 @@ body  {
 }
 .logo {
   display: inline !important;
-  height: 60px;
+  height: 50px;
   vertical-align: middle;
   font-weight: 600;
+  font-size: 30px;
 }
 .blue {
   color: #3770a0;
@@ -49,6 +58,9 @@ body  {
 .job-box  {
   border-right: solid 1px #ccc;
   margin-bottom: 20px;
+}
+.job:last-child .job-box {
+  border: none;
 }
 .job-box-inner  {
   border-bottom: solid 1px #ccc;

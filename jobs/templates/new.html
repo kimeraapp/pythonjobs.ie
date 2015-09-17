@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div class="jumbotron">
+  <div class="jumbotron internal-pages">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">
+            <img class="logo" src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc3%2FPython-logo-notext.svg%2F1024px-Python-logo-notext.svg.png&f=1" />
+            <span class="logo blue">PythonJobs</span><span class="logo yellow">.ie</spa>
+          </a>
+        </div>
+      </div>
+    </nav>
     <div class="container">
       <h1>Find the best developers</h1>
     </div>
   </div>
-  <div class="container mtop-40">
+  <div class="container">
     <div class="row">
       <div class="col-md-9">
         <form method="post" id="postJobForm" class="form-horizontal">
-          <div class="row">
-            <div class="col-sm-10 col-sm-offset-2">
-              <p><strong><span class="text-danger">*</span> Email is requitext-danger to edit the job details.</strong></p>
-            </div>
-          </div>
           {% csrf_token %}
           <div class="form-group">
             <label for="position" class="col-sm-2 control-label">Position
@@ -89,6 +94,11 @@
             </label>
             <div class="col-sm-10">
               <input class="form-control" type="email" size="30" name="email" id="email" requitext-danger>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-2">
+              <p><strong><span class="text-danger">*</span>A valid email is required to edit the job details.</strong></p>
             </div>
           </div>
           <div class="row">
