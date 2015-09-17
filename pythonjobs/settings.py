@@ -103,3 +103,11 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+# Mails
+
+EMAIL_HOST = os.environ.get('HOST')
+EMAIL_HOST_USER = os.environ.get('USER')
+EMAIL_HOST_PASSWORD = os.environ.get('PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
