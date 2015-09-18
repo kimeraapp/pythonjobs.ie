@@ -35,9 +35,9 @@ class TestJob(TestCase):
         secondjob = mommy.make(Job, token = '12345')
         self.assertNotEqual(firstjob.token, secondjob.token)
 
-    def test_get_clean_description(self):
+    def test_clean_description(self):
         self.job.description = "<p>&nbsp;test</p>"
-        self.assertEqual(self.job.get_clean_description(), "&nbsp;test")
+        self.assertEqual(self.job.clean_description(), "&nbsp;test")
 
     def test_category_class_returns_slug(self):
         self.job.category = "Full Time"

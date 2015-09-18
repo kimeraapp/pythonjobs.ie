@@ -17,7 +17,7 @@
           <h3 class="job-position">{{ job.position }}</h3>
           <hr class="job-category-{{ job.category }}">
           <p class="job-description">
-            {{ job.get_clean_description|safe|truncatechars_html:250 }}
+            {{ job.clean_description|safe|truncatechars_html:250 }}
           </p>
           <h5 class="job-category-{{ job.category }}">{{ job.category }}</h5>
           <h4 class="job-location">({{ job.location }})</h4>

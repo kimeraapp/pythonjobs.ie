@@ -25,7 +25,7 @@ class Job(models.Model):
     def __unicode__(self):
         return self.position
 
-    def get_clean_description(self):
+    def clean_description(self):
         return strip_tags(self.description)
 
     def category_class(self):
