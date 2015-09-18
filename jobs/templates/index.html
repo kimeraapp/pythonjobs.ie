@@ -16,7 +16,7 @@
     			<h5 class="job-company">{{ job.company_name }}</h5>
     			<h3 class="job-position">{{ job.position }}</h3>
     			<hr class="job-category-{{ job.category }}">
-          <p class="job-description">{{ job.description|truncatechars:255 }}</p>
+          <p class="job-description">{{ job.description|truncatechars_html:255 }}</p>
           <h5 class="job-category-{{ job.category }}">{{ job.category }}</h5>
           <h4 class="job-location">({{ job.location }})</h4>
         </div>
