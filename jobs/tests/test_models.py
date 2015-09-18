@@ -39,6 +39,14 @@ class TestJob(TestCase):
         self.job.description = "<p>&nbsp;test</p>"
         self.assertEqual(self.job.get_clean_description(), "&nbsp;test")
 
+    def test_category_class_returns_slug(self):
+        self.job.category = "Full Time"
+        self.assertEqual(self.job.category_class(), "full-time")
+
+    def test_category_class_returns_default(self):
+        self.job.category = None
+        self.assertEqual(self.job.category_class(), "default")
+
     def job_is_valid(self, job):
         is_valid = True
         try :

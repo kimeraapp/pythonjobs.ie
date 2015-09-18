@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import signals
 from django.utils.html import strip_tags
+from django.utils.text import slugify
 from pythonjobs.services import generate_token, send_confirmation_mail
 
 class Job(models.Model):
@@ -26,6 +27,12 @@ class Job(models.Model):
 
     def get_clean_description(self):
         return strip_tags(self.description)
+
+    def category_class(self):
+        if self.category:
+            return slugify(self.category)
+
+        return "default"
 
 def token_pre_save(signal, instance, sender, **kwargs):
     token = generate_token()
