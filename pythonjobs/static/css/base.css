@@ -64,10 +64,9 @@ body  {
 }
 .job-box-inner  {
   border-bottom: solid 1px #ccc;
+  height: 300px;
 }
-.job-box .job-description  {
-  height: 150px;
-}
+
 .job-position {
   font-family: 'Droid Serif', serif;
   font-weight: bold;
@@ -78,11 +77,12 @@ body  {
   width: 20px;
   border-top: solid 4px;
 }
-.job-category-fulltime  {
+/*
+.job-category-full-time h5  {
   border-color: #ff00cc;
   color: #ff00cc;
 }
-.job-category-parttime  {
+.job-category-part-time  {
   border-color: #ff00cc;
 }
 .job-category-contract  {
@@ -91,15 +91,16 @@ body  {
 .job-category-permanent  {
   border-color: #ff00cc;
 }
-.job-category-freelance  {
+.job-category-freelancer  {
   border-color: #ff00cc;
 }
 .job-category-internship  {
   border-color: #ff00cc;
 }
-.job-category-other  {
+.job-category-default  {
   border-color: #ff00cc;
 }
+*/
 /*Special case: tiny mce editor area needs to be visible*/
 textarea:required {
   background: transparent;
