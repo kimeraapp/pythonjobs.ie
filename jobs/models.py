@@ -34,8 +34,9 @@ def token_pre_save(signal, instance, sender, **kwargs):
     instance.token = token;
     instance.status = 1
 
-def mail_post_save(signal, instance, sender, **kwargs):
-    send_confirmation_mail(instance)
+def mail_post_save(signal, instance, sender, created, **kwargs):
+    if created:
+        send_confirmation_mail(instance)
 
 signals.pre_save.connect(token_pre_save, sender=Job)
 signals.post_save.connect(mail_post_save, sender=Job)

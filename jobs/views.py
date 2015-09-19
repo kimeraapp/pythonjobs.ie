@@ -6,6 +6,7 @@ class IndexView(generic.ListView):
     model = Job
     template_name = "index.html"
     context_object_name = "jobs"
+    queryset = Job.objects.order_by("-created_at").all()
 
 
 class ShowView(generic.DetailView):
