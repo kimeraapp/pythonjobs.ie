@@ -27,6 +27,18 @@ class Job(models.Model):
     def get_clean_description(self):
         return strip_tags(self.description)
 
+    def cities(self):
+        return ['Antrim', 'Armagh', 'Carlow', 'Cavan', 'Clare', 'Cork', 'Derry',
+                  'Donegal', 'Down', 'Dublin', 'Fermanagh', 'Galway', 'Kerry',
+                  'Kildare', 'Kilkenny', 'Laois', 'Leitrim', 'Limerick', 'Longford',
+                  'Louth', 'Mayo', 'Meath', 'Monaghan', 'Offaly', 'Roscommon',
+                  'Sligo', 'Tipperary', 'Tyrone', 'Waterford', 'Westmeath',
+                  'Wexford', 'Wicklow', 'Other']
+
+    def categories(self):
+        return ['Full time', 'Part time', 'Contract', 'Permanent',
+                  'Freelance', 'Internship', 'Other']
+
 def token_pre_save(signal, instance, sender, **kwargs):
     if not instance.token:
         token = generate_token()
