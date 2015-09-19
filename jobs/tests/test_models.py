@@ -3,6 +3,7 @@ from django.db import models
 from jobs.models import Job
 from django.utils import timezone
 from model_mommy import mommy
+from django.core import mail
 
 
 class TestJob(TestCase):
@@ -10,17 +11,23 @@ class TestJob(TestCase):
         self.job = mommy.prepare(Job)
 
     def tearDown(self):
-        Job.objects.all().delete()
+        if len(Job.objects.all()) > 0:
+            Job.objects.all().delete()
 
     def test_str_returns_company_and_position(self):
         entry = self.job
         self.assertEqual(str(entry), entry.company_name + " " + entry.position)
 
     def test_phone_not_required(self):
-        self.assertFalse(self.job_is_valid(self.job))
+        self.job.phone = ""
+        self.job.save()
+
+        self.assertEquals(len(Job.objects.all()), 1)
 
     def test_external_link_not_required(self):
-        self.assertFalse(self.job_is_valid(self.job))
+        job = mommy.make(Job, external_link = "")
+
+        self.assertEquals(len(Job.objects.all()), 1)
 
     def test_token_is_added_pre_saving(self):
         self.job.save()
@@ -30,6 +37,16 @@ class TestJob(TestCase):
         self.job.save()
         self.assertEqual(self.job.status, 1)
 
+    def test_send_email_after_save(self):
+        self.job.save()
+        self.assertEquals(len(mail.outbox), 1)
+
+    def test_do_not_send_email_after_update(self):
+        self.job.save()
+        self.job.save()
+        self.assertEquals(len(mail.outbox), 1)
+
+
     def test_token_is_unique(self):
         firstjob = mommy.make(Job, token = '12345')
         secondjob = mommy.make(Job, token = '12345')
@@ -38,10 +55,3 @@ class TestJob(TestCase):
     def test_get_clean_description(self):
         self.job.description = "<p>&nbsp;test</p>"
         self.assertEqual(self.job.get_clean_description(), "&nbsp;test")
-
-    def job_is_valid(self, job):
-        is_valid = True
-        try :
-            job.save()
-        except :
-            is_valid = False
