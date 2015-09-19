@@ -40,7 +40,7 @@ class Job(models.Model):
                   'Freelance', 'Internship', 'Other']
 
 def token_pre_save(signal, instance, sender, **kwargs):
-    if not instance.token:
+    if not instance.token or Job.objects.filter(token = instance.token):
         token = generate_token()
         while Job.objects.filter(token = token):
             token = generate_token()
