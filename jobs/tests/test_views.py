@@ -50,3 +50,11 @@ class TestJob(TestCase):
         params = model_to_dict(self.job)
         response = self.client.post(reverse("job-new"), params)
         self.assertEquals(response.status_code, 302)
+
+    def test_edit_returns_200(self):
+        response = self.client.get(reverse("job-edit", args=[self.job.token]))
+        self.assertEquals(response.status_code, 200)
+
+    def test_edit_template(self):
+        response = self.client.get(reverse("job-edit", args=[self.job.token]))
+        self.assertTemplateUsed(response, "edit.html")

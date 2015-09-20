@@ -27,12 +27,25 @@ class Job(models.Model):
     def get_clean_description(self):
         return strip_tags(self.description)
 
+    def cities(self):
+        return ['Antrim', 'Armagh', 'Carlow', 'Cavan', 'Clare', 'Cork', 'Derry',
+                  'Donegal', 'Down', 'Dublin', 'Fermanagh', 'Galway', 'Kerry',
+                  'Kildare', 'Kilkenny', 'Laois', 'Leitrim', 'Limerick', 'Longford',
+                  'Louth', 'Mayo', 'Meath', 'Monaghan', 'Offaly', 'Roscommon',
+                  'Sligo', 'Tipperary', 'Tyrone', 'Waterford', 'Westmeath',
+                  'Wexford', 'Wicklow', 'Other']
+
+    def categories(self):
+        return ['Full time', 'Part time', 'Contract', 'Permanent',
+                  'Freelance', 'Internship', 'Other']
+
 def token_pre_save(signal, instance, sender, **kwargs):
-    token = generate_token()
-    while Job.objects.filter(token = token):
+    if not instance.token or Job.objects.filter(token = instance.token).exclude(id = instance.id):
         token = generate_token()
-    instance.token = token;
-    instance.status = 1
+        while Job.objects.filter(token = token):
+            token = generate_token()
+        instance.token = token;
+        instance.status = 1
 
 def mail_post_save(signal, instance, sender, created, **kwargs):
     if created:
