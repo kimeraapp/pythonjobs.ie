@@ -1,40 +1,9 @@
+/* General */
+/* Fixing Bootstrap */
+
+/* General */
 body  {
   font-family: 'Open Sans', sans-serif;
-}
-/* Fixing Bootstrap*/
-/* Navbar */
-
-.navbar-brand {
-  height: auto;
-}
-.navbar-brand img {
-  margin-right: 10px;
-}
-.jumbotron {
-  background-image: url("/static/images/bg-header.jpg");
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #fff;
-  padding: 100px 0;
-}
-.jumbotron.internal-pages {
-  padding: 40px 0 100px 0;
-}
-.jumbotron h1 {
-  font-weight: 300;
-}
-.jumbotron .btn-primary {
-  margin-top: 30px;
-}
-.btn.btn-primary, .btn.btn-primary:hover  {
-  padding: 15px 70px;
-  font-weight: 600;
-  background-color: #3770a0;
-  font-size: 24px;
-}
-.btn.btn-primary:hover  {
-    box-shadow: 0 -3px rgba(0, 0, 0, 0.25) inset;
 }
 .logo {
   display: inline !important;
@@ -52,6 +21,65 @@ body  {
 .bold {
   font-weight: 600;
 }
+
+
+/* Full Time */
+.job-category-fulltime .color {
+  color: #FF7900;
+}
+.job-category-fulltime .border  {
+  border-color: #FF7900;
+}
+
+/* Part Time */
+.job-category-part-time .color {
+  color: #009A49;
+}
+.job-category-part-time .border  {
+  border-color: #009A49;
+}
+
+/* Fixing Bootstrap*/
+.navbar-brand {
+  height: auto;
+}
+.navbar-brand img {
+  margin-right: 10px;
+}
+.jumbotron {
+  background-image: url("/static/images/bg-header.jpg");
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  padding: 100px 0;
+}
+.jumbotron h1, .jumbotron h2{
+  font-weight: 300;
+}
+.jumbotron h2 {
+  font-size: 48px;
+}
+.jumbotron .btn-primary {
+  margin-top: 30px;
+  font-size: 24px;
+}
+.btn.btn-primary, .btn.btn-primary:hover  {
+  padding: 15px 70px;
+  font-weight: 600;
+  background-color: #3770a0;
+}
+.btn.btn-primary:hover  {
+    box-shadow: 0 -3px rgba(0, 0, 0, 0.25) inset;
+}
+.btn-group-sm > .btn, .btn-sm {
+  font-size: 16px;
+}
+
+
+
+
+/* Index Page */
 .job {
   color: #000;
 }
@@ -77,11 +105,49 @@ body  {
   width: 20px;
   border-top: solid 4px;
 }
-/*
-.job-category-full-time h5  {
-  border-color: #ff00cc;
-  color: #ff00cc;
+
+
+
+
+/* Internal Pages */
+.internal-pages .jumbotron {
+  padding: 40px 0 100px 0;
 }
+.title  {
+  border-left: 5px solid;
+  padding-left: 12px;
+  margin-bottom: 30px;
+  margin-top: 60px;
+}
+
+.tag .fa {
+  margin-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer */
+footer .social {
+  display: inline-block;
+}
+footer .social-middle {
+  margin: 0 20px;
+}
+
+
 .job-category-part-time  {
   border-color: #ff00cc;
 }
@@ -100,7 +166,7 @@ body  {
 .job-category-default  {
   border-color: #ff00cc;
 }
-*/
+
 /*Special case: tiny mce editor area needs to be visible*/
 textarea:required {
   background: transparent;
@@ -114,6 +180,10 @@ textarea:required {
   opacity: 0;
   overflow: hidden;
 }
+table.mceLayout {
+  width: 100%!important;
+}
+
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) and (max-width : 767px) {
   .job-box {

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="jumbotron internal-pages job-category-{{job.category_class}}">
+<div class="jumbotron internal-pages">
   <nav class="navbar">
     <div class="container">
       <div class="navbar-header">
@@ -12,28 +12,44 @@
     </div>
   </nav>
   <div class="container">
-    <h1>Find the best companies</h1>
+    <h2>Find the best companies</h2>
   </div>
 </div>
-<div class="container mtop-40">
+<div class="container job-category-{{job.category_class}}">
   <div class="row">
     <div class="col-md-9">
-        <h1 class="job-position">{{ job.position }} at {{ job.company_name }}</h1>
-        <br />
-        <span class="bold">Website:</span> <a href="{{ job.website }}">{{ job.website }}</a><br />
-        <span class="bold">Category:</span> {{ job.category }}<br />
-        <span class="bold">Location:</span> {{ job.location }}<br />
-        <span class="bold">Posted:</span> {{ job.created_at|date:"F dS" }}<br />
-        {% if job.phone != '' %}
-            <span class="bold">Phone:</span> {{ job.phone }}<br />
+      <h1 class="job-position">{{ job.position }}</h1>
+      <h3>
+        {% if job.website %}
+          <a class="color" href="{{ job.website }}">{{ job.company_name }}</a> | {{ job.location }}
+        {% else %}
+          {{ job.company_name }} | {{ job.location }}
         {% endif %}
-        <span class="bold">Email:</span> {{ job.email }}<br />
-        <br />
-        <span class="bold">Description:</span><br /> {{ job.description|safe }}<br />
-        <br />
-        {% if job.external_link != '' %}
-            <a href="{{ job.external_link }}">Apply</a>
-        {% endif %}
+      </h3>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="color tag">
+            <i class="fa fa-clock-o fa-lg"></i> {{ job.created_at|date:"F dS" }}
+          </p>
+        </div>
+        <div class="col-sm-3">
+          <p class="color tag">
+            <i class="fa fa-bookmark fa-lg"></i> {{ job.category }}
+          </p>
+
+        </div>
+      </div>
+      <h3 class="bold border title">Description:</h3>
+      <div class="job-description">{{ job.description|safe }}</div>
+      <div class="clearfix"></div>
+      {% if job.external_link != '' %}
+        <a class="btn btn-sm btn-primary" href="{{ job.external_link }}">Apply</a>
+      {% else %}
+        <h3 class="bold border title">How to apply</h3>
+        <p>Send an email to <a class="color" href="{{ job.email }}">{{ job.email }}</a></p>
+      {% endif %}
     </div>
+  </div>
 </div>
 {% endblock %}
