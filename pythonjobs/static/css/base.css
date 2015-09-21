@@ -148,26 +148,8 @@ footer .social-middle {
 }
 
 
-.job-category-part-time  {
-  border-color: #ff00cc;
-}
-.job-category-contract  {
-  border-color: #ff00cc;
-}
-.job-category-permanent  {
-  border-color: #ff00cc;
-}
-.job-category-freelancer  {
-  border-color: #ff00cc;
-}
-.job-category-internship  {
-  border-color: #ff00cc;
-}
-.job-category-default  {
-  border-color: #ff00cc;
-}
 
-/*Special case: tiny mce editor area needs to be visible*/
+/* New Page */
 textarea:required {
   background: transparent;
   border: none;
