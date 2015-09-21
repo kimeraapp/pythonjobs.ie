@@ -24,18 +24,18 @@ body  {
 
 
 /* Full Time */
-.job-category-fulltime .color {
+.job-category-full-time .color {
   color: #FF7900;
 }
-.job-category-fulltime .border  {
+.job-category-full-time .border  {
   border-color: #FF7900;
 }
 
-/* Part Time */
-.job-category-part-time .color {
+/* Permanent */
+.job-category-permanent .color {
   color: #009A49;
 }
-.job-category-part-time .border  {
+.job-category-permanent .border  {
   border-color: #009A49;
 }
 
