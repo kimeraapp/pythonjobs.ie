@@ -19,15 +19,15 @@ class Job(models.Model):
     modified_at = models.DateTimeField(auto_now=True, editable=False)
     status = models.BooleanField(default=1)
 
-    cities = ['Antrim', 'Armagh', 'Carlow', 'Cavan', 'Clare', 'Cork', 'Derry',
+    cities = ('Antrim', 'Armagh', 'Carlow', 'Cavan', 'Clare', 'Cork', 'Derry',
                       'Donegal', 'Down', 'Dublin', 'Fermanagh', 'Galway', 'Kerry',
                       'Kildare', 'Kilkenny', 'Laois', 'Leitrim', 'Limerick', 'Longford',
                       'Louth', 'Mayo', 'Meath', 'Monaghan', 'Offaly', 'Roscommon',
                       'Sligo', 'Tipperary', 'Tyrone', 'Waterford', 'Westmeath',
-                      'Wexford', 'Wicklow', 'Other']
+                      'Wexford', 'Wicklow', 'Other')
 
-    categories = ['Full time', 'Part time', 'Contract', 'Permanent',
-                      'Freelance', 'Internship', 'Other']
+    categories = ('Full time', 'Part time', 'Contract', 'Permanent',
+                      'Freelance', 'Internship', 'Other')
 
     def __str__(self):
         return self.company_name + " " + self.position
