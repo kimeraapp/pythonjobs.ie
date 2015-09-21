@@ -10,16 +10,16 @@
 <div class="container">
   <div class="row">
     {% for job in jobs %}
-    <a href="jobs/{{ job.id }}" class="job">
+    <a href="jobs/{{ job.id }}" class="job job-category-{{job.category_class}}">
       <div class="col-xs-12 col-sm-4 col-md-3 job-box">
         <div class="job-box-inner">
           <h5 class="job-company">{{ job.company_name }}</h5>
-          <h3 class="job-position">{{ job.position }}</h3>
-          <hr class="job-category-{{ job.category }}">
+          <h4 class="job-position">{{ job.position|truncatechars_html:58 }}</h4>
+          <hr class="border">
           <p class="job-description">
-            {{ job.get_clean_description|safe|truncatechars_html:250 }}
+            {{ job.clean_description|safe|truncatechars_html:170 }}
           </p>
-          <h5 class="job-category-{{ job.category }}">{{ job.category }}</h5>
+          <h5 class="job-category color">{{ job.category }}</h5>
           <h4 class="job-location">({{ job.location }})</h4>
         </div>
       </div>
