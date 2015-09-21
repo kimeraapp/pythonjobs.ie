@@ -63,3 +63,9 @@ class TestJob(TestCase):
     def test_category_class_returns_default(self):
         self.job.category = None
         self.assertEqual(self.job.category_class(), "default")
+
+    def test_cities_returns_not_empty_list(self):
+        self.assertNotEqual(len(self.job.cities), 0)
+
+    def test_categories_returns_not_empty_list(self):
+        self.assertNotEqual(len(self.job.categories), 0)
