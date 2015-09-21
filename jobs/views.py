@@ -20,8 +20,6 @@ class NewView(generic.CreateView):
 
     fields = ['company_name', 'website', 'category', 'location', 'position',
               'description', 'email', 'phone', 'external_link', 'status']
-    cities = Job.cities
-    categories = Job.categories
 
     template_name = "new.html"
     success_url = "/"
@@ -29,8 +27,8 @@ class NewView(generic.CreateView):
     def get_context_data(self, **kwargs):
         context = super(generic.CreateView, self).get_context_data(**kwargs)
 
-        context['cities'] = self.cities
-        context['categories'] = self.categories
+        context['cities'] = Job.cities
+        context['categories'] = Job.categories
 
         return context
 
@@ -39,16 +37,14 @@ class EditView(generic.UpdateView):
 
     fields = ['company_name', 'website', 'category', 'location', 'position',
               'description', 'email', 'phone', 'external_link', 'status']
-    cities = Job.cities
-    categories = Job.categories
 
     template_name = "edit.html"
-    success_url = "/" 
+    success_url = "/"
 
     def get_context_data(self, **kwargs):
         context = super(generic.UpdateView, self).get_context_data(**kwargs)
 
-        context['cities'] = self.cities
-        context['categories'] = self.categories
+        context['cities'] = Job.cities
+        context['categories'] = Job.categories
 
         return context
