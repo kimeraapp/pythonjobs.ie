@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import signals
 from django.utils.html import strip_tags
 from django.utils.text import slugify
+from django.core.urlresolvers import reverse
 from pythonjobs.services import generate_token, send_confirmation_mail
 
 
@@ -41,6 +42,9 @@ class Job(models.Model):
             return slugify(self.category)
 
         return "default"
+
+    def get_absolute_url(self):
+        return reverse('job-show', args=[str(self.id)])
 
 
 def token_pre_save(signal, instance, sender, **kwargs):

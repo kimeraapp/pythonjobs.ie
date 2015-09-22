@@ -1,9 +1,10 @@
 from django.test import TestCase
 from django.db import models
+from django.core import mail
+from django.core.urlresolvers import reverse
 from jobs.models import Job
 from django.utils import timezone
 from model_mommy import mommy
-from django.core import mail
 
 
 class TestJob(TestCase):
@@ -70,3 +71,8 @@ class TestJob(TestCase):
 
     def test_categories_returns_not_empty_list(self):
         self.assertNotEqual(len(self.job.categories), 0)
+
+    def test_get_absolute_url_returns_link_to_show_page(self):
+        self.job.pk = 1
+        self.assertEquals(self.job.get_absolute_url(),
+            reverse("job-show", args=[self.job.pk]))
