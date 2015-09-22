@@ -42,13 +42,17 @@
       </div>
       <h3 class="bold border title">Description:</h3>
       <div class="job-description">{{ job.description|safe }}</div>
+
       <div class="clearfix"></div>
-      {% if job.external_link != '' %}
-        <a class="btn btn-sm btn-primary" href="{{ job.external_link }}" target="_blank">Apply</a>
-      {% else %}
-        <h3 class="bold border title">How to apply</h3>
-        <p>Send an email to <a class="color" href="{{ job.email }}">{{ job.email }}</a></p>
-      {% endif %}
+
+      <h3 class="bold border title">Apply</h3>
+      <p>
+          <a class="btn btn-sm btn-primary" href="{{ job.external_link }}" target="_blank">
+              External link
+          </a>
+      </p>
+      <p>Send an email to <a class="color" href="mailto:{{ job.email }}">{{ job.email }}</a></p>
+
     </div>
   </div>
 </div>

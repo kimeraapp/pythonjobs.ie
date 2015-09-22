@@ -44,11 +44,13 @@ class TestJob(TestCase):
     def test_do_not_send_email_after_update(self):
         self.job.save()
         self.job.save()
+
         self.assertEquals(len(mail.outbox), 1)
 
     def test_token_is_unique(self):
         firstjob = mommy.make(Job, token='12345')
         secondjob = mommy.make(Job, token='12345')
+
         self.assertNotEqual(firstjob.token, secondjob.token)
 
     def test_clean_description(self):
