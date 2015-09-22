@@ -32,9 +32,6 @@ class Job(models.Model):
     def __str__(self):
         return self.company_name + " " + self.position
 
-    def __unicode__(self):
-        return self.position
-
     def clean_description(self):
         return strip_tags(self.description)
 
