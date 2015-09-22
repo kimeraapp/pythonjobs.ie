@@ -25,7 +25,7 @@ class TestJob(TestCase):
         self.assertEquals(len(Job.objects.all()), 1)
 
     def test_external_link_not_required(self):
-        job = mommy.make(Job, external_link = "")
+        job = mommy.make(Job, external_link="")
 
         self.assertEquals(len(Job.objects.all()), 1)
 
@@ -48,8 +48,8 @@ class TestJob(TestCase):
         self.assertEquals(len(mail.outbox), 1)
 
     def test_token_is_unique(self):
-        firstjob = mommy.make(Job, token = '12345')
-        secondjob = mommy.make(Job, token = '12345')
+        firstjob = mommy.make(Job, token='12345')
+        secondjob = mommy.make(Job, token='12345')
 
         self.assertNotEqual(firstjob.token, secondjob.token)
 

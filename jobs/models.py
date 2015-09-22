@@ -4,6 +4,7 @@ from django.utils.html import strip_tags
 from django.utils.text import slugify
 from pythonjobs.services import generate_token, send_confirmation_mail
 
+
 class Job(models.Model):
     company_name = models.CharField(max_length=100)
     website = models.CharField(max_length=150)
@@ -20,11 +21,11 @@ class Job(models.Model):
     status = models.BooleanField(default=1)
 
     cities = ('Antrim', 'Armagh', 'Carlow', 'Cavan', 'Clare', 'Cork', 'Derry',
-                      'Donegal', 'Down', 'Dublin', 'Fermanagh', 'Galway', 'Kerry',
-                      'Kildare', 'Kilkenny', 'Laois', 'Leitrim', 'Limerick', 'Longford',
-                      'Louth', 'Mayo', 'Meath', 'Monaghan', 'Offaly', 'Roscommon',
-                      'Sligo', 'Tipperary', 'Tyrone', 'Waterford', 'Westmeath',
-                      'Wexford', 'Wicklow', 'Other')
+        'Donegal', 'Down', 'Dublin', 'Fermanagh', 'Galway', 'Kerry',
+        'Kildare', 'Kilkenny', 'Laois', 'Leitrim', 'Limerick', 'Longford',
+        'Louth', 'Mayo', 'Meath', 'Monaghan', 'Offaly', 'Roscommon',
+        'Sligo', 'Tipperary', 'Tyrone', 'Waterford', 'Westmeath',
+        'Wexford', 'Wicklow', 'Other')
 
     categories = ('Full time', 'Part time', 'Contract', 'Permanent',
                       'Freelance', 'Internship', 'Other')
@@ -41,13 +42,15 @@ class Job(models.Model):
 
         return "default"
 
+
 def token_pre_save(signal, instance, sender, **kwargs):
-    if not instance.token or Job.objects.filter(token = instance.token).exclude(id = instance.id):
+    if not instance.token or Job.objects.filter(token=instance.token).exclude(id=instance.id):
         token = generate_token()
-        while Job.objects.filter(token = token):
+        while Job.objects.filter(token=token):
             token = generate_token()
-        instance.token = token;
+        instance.token = token
         instance.status = 1
+
 
 def mail_post_save(signal, instance, sender, created, **kwargs):
     if created:

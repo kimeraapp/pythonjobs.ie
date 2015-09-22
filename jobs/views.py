@@ -32,6 +32,7 @@ class NewView(generic.CreateView):
 
         return context
 
+
 class EditView(generic.UpdateView):
     model = Job
 
