@@ -3,6 +3,7 @@ from django.test import Client
 from django.core.urlresolvers import reverse
 from django.forms.models import model_to_dict
 from jobs.models import Job
+from jobs.views import JobsFeed
 
 
 class TestJob(TestCase):
@@ -58,3 +59,26 @@ class TestJob(TestCase):
     def test_edit_template(self):
         response = self.client.get(reverse("job-edit", args=[self.job.token]))
         self.assertTemplateUsed(response, "edit.html")
+
+    def test_feed_items_returns_not_empty_list(self):
+        self.assertNotEqual(len(JobsFeed.items(self)), 0)
+
+    def test_feed_title_returns_job_position(self):
+        item = self.job
+        self.assertEquals(JobsFeed.item_title(self, item), item.position)
+
+    def test_feed_description_returns_job_description(self):
+        feed_description = JobsFeed.item_description(self, self.job)
+        self.assertEquals(feed_description, self.job.description)
+
+    def test_feed_author_name_returns_job_pythonjobs_ie(self):
+        feed_author = JobsFeed.item_author_name(self, self.job)
+        self.assertEquals(feed_author, 'pythonjobs.ie')
+
+    def test_feed_pubdate_returns_job_created_at(self):
+        feed_pubdate = JobsFeed.item_pubdate(self, self.job)
+        self.assertEquals(feed_pubdate, self.job.created_at)
+
+    def test_feed_link_returns_job_link(self):
+        job_link = reverse('job-show', args=[self.job.pk])
+        self.assertEquals(JobsFeed.item_link(self, self.job), job_link)
