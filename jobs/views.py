@@ -1,4 +1,6 @@
 from django.views import generic
+from django.contrib.syndication.views import Feed
+from django.core.urlresolvers import reverse
 from jobs.models import Job
 
 
@@ -49,3 +51,27 @@ class EditView(generic.UpdateView):
         context['categories'] = Job.categories
 
         return context
+
+
+class JobsFeed(Feed):
+    title = "Python Jobs Ireland"
+    link = "/rss"
+    description = "Latest jobs on Python Jobs Ireland: pythonjobs.ie"
+
+    def items(self):
+        return Job.objects.order_by('-created_at')[:10]
+
+    def item_title(self, job):
+        return job.position
+
+    def item_description(self, job):
+        return job.description
+
+    def item_author_name(self, job):
+        return 'pythonjobs.ie'
+
+    def item_pubdate(self, job):
+        return job.created_at
+
+    def item_link(self, job):
+        return reverse('job-show', args=[job.pk])

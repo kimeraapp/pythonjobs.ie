@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from jobs.views import IndexView, ShowView, NewView, EditView
+from jobs.views import IndexView, ShowView, NewView, EditView, JobsFeed
 
 urlpatterns = [
     url(r'^jobs/new$', NewView.as_view(), name='job-new'),
@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^jobs/edit/(?P<slug>[A-Z0-9]+)$',
         EditView.as_view(slug_field="token"), name='job-edit'),
     url(r'^$', IndexView.as_view(), name='job-home'),
+    url(r'^rss/$', JobsFeed()),
 ]
