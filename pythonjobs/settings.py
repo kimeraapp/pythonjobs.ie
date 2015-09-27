@@ -115,8 +115,8 @@ EMAIL_USE_TLS = True
 
 # Celery
 
-BROKER_URL = os.environ.get('BROKER_URL')
-CELERY_RESULT_BACKEND = os.environ.get('BROKER_URL')
+BROKER_URL = os.environ.get('REDIS_URL')
+CELERY_RESULT_BACKEND = os.environ.get('REDIS_URL')
 CELERY_ACCEPT_CONTENT = ['json']
 
 
