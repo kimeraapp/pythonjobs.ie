@@ -3,7 +3,7 @@ from pythonjobs.services import Twitter
 
 
 @app.task
-def tweet(job_id):
-    print("HEEEEEEEEEEEEEEERE " + str(job_id))
+def tweet(job):
+    message = "New python job on {0}".format(job.get_absolute_url())
     twitter = Twitter()
-    twitter.tweet(str(job_id))
+    twitter.tweet(message)
