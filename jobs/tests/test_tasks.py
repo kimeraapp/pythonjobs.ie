@@ -2,6 +2,7 @@ from django.test import TestCase
 from unittest.mock import patch
 from pythonjobs.services import Twitter
 from jobs.tasks import tweet
+from jobs.models import Job
 
 
 class TestTweet(TestCase):
@@ -13,5 +14,5 @@ class TestTweet(TestCase):
         self.patcher.stop()
 
     def test_tweet_calls_twitter_class(self):
-        tweet(1)
+        tweet(Job(pk=1))
         self.assertTrue(self.mock_tweet.called)
