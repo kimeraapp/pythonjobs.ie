@@ -118,3 +118,11 @@ EMAIL_USE_TLS = True
 BROKER_URL = os.environ.get('BROKER_URL')
 CELERY_RESULT_BACKEND = os.environ.get('BROKER_URL')
 CELERY_ACCEPT_CONTENT = ['json']
+
+
+# Twitter
+
+TWITTER_KEY = os.environ.get('TWITTER_KEY')
+TWITTER_SECRET = os.environ.get('TWITTER_SECRET')
+TWITTER_ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN')
+TWITTER_TOKEN_SECRET = os.environ.get('TWITTER_TOKEN_SECRET')
