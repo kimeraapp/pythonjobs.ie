@@ -64,7 +64,7 @@ def token_pre_save(signal, instance, sender, **kwargs):
 def mail_post_save(signal, instance, sender, created, **kwargs):
     if created:
         send_confirmation_mail(instance)
-        tweet.apply_async(args=(instance.pk,), countdown=10, serializer='json')
+        tweet.apply_async(args=(instance,), countdown=10, serializer='json')
 
 signals.pre_save.connect(token_pre_save, sender=Job)
 signals.post_save.connect(mail_post_save, sender=Job)
