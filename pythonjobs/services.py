@@ -20,7 +20,7 @@ class Twitter(object):
             self.api = tweepy.API(auth)
 
         def tweet(self, message):
-            return api.update_status(status=message)
+            return self.api.update_status(status=message)
 
 
 def generate_token(length=60):
