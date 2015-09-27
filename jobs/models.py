@@ -2,7 +2,9 @@ from django.db import models
 from django.db.models import signals
 from django.utils.html import strip_tags
 from django.utils.text import slugify
+from django.core.urlresolvers import reverse
 from pythonjobs.services import generate_token, send_confirmation_mail
+from jobs.tasks import tweet
 
 
 class Job(models.Model):
@@ -20,15 +22,19 @@ class Job(models.Model):
     modified_at = models.DateTimeField(auto_now=True, editable=False)
     status = models.BooleanField(default=1)
 
-    cities = ('Antrim', 'Armagh', 'Carlow', 'Cavan', 'Clare', 'Cork', 'Derry',
+    cities = (
+        'Antrim', 'Armagh', 'Carlow', 'Cavan', 'Clare', 'Cork', 'Derry',
         'Donegal', 'Down', 'Dublin', 'Fermanagh', 'Galway', 'Kerry',
         'Kildare', 'Kilkenny', 'Laois', 'Leitrim', 'Limerick', 'Longford',
         'Louth', 'Mayo', 'Meath', 'Monaghan', 'Offaly', 'Roscommon',
         'Sligo', 'Tipperary', 'Tyrone', 'Waterford', 'Westmeath',
-        'Wexford', 'Wicklow', 'Other')
+        'Wexford', 'Wicklow', 'Other'
+    )
 
-    categories = ('Full time', 'Part time', 'Contract', 'Permanent',
-                      'Freelance', 'Internship', 'Other')
+    categories = (
+        'Full time', 'Part time', 'Contract', 'Permanent',
+        'Freelance', 'Internship', 'Other'
+    )
 
     def __str__(self):
         return self.company_name + " " + self.position
@@ -41,6 +47,9 @@ class Job(models.Model):
             return slugify(self.category)
 
         return "default"
+
+    def get_absolute_url(self):
+        return reverse('job-show', args=[str(self.id)])
 
 
 def token_pre_save(signal, instance, sender, **kwargs):
@@ -55,6 +64,8 @@ def token_pre_save(signal, instance, sender, **kwargs):
 def mail_post_save(signal, instance, sender, created, **kwargs):
     if created:
         send_confirmation_mail(instance)
+        tweet.apply_async(args=(instance.get_absolute_url(),),
+                          countdown=10, serializer='json')
 
 signals.pre_save.connect(token_pre_save, sender=Job)
 signals.post_save.connect(mail_post_save, sender=Job)

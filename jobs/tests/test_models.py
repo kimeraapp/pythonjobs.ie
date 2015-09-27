@@ -1,16 +1,21 @@
 from django.test import TestCase
 from django.db import models
-from jobs.models import Job
-from django.utils import timezone
-from model_mommy import mommy
 from django.core import mail
+from django.core.urlresolvers import reverse
+from django.utils import timezone
+from unittest.mock import patch
+from model_mommy import mommy
+from jobs.models import Job
 
 
 class TestJob(TestCase):
     def setUp(self):
+        self.patcher = patch('jobs.tasks.tweet.apply_async')
+        self.mock_tweet = self.patcher.start()
         self.job = mommy.prepare(Job)
 
     def tearDown(self):
+        self.patcher.start()
         if len(Job.objects.all()) > 0:
             Job.objects.all().delete()
 
@@ -70,3 +75,12 @@ class TestJob(TestCase):
 
     def test_categories_returns_not_empty_list(self):
         self.assertNotEqual(len(self.job.categories), 0)
+
+    def test_get_absolute_url_returns_link_to_show_page(self):
+        self.job.pk = 1
+        self.assertEquals(self.job.get_absolute_url(),
+                          reverse("job-show", args=[self.job.pk]))
+
+    def test_save_tweets_about_job(self):
+        self.job.save()
+        self.assertTrue(self.mock_tweet.called)

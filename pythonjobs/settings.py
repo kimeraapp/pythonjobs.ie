@@ -111,3 +111,18 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+# Celery
+
+BROKER_URL = os.environ.get('REDIS_URL')
+CELERY_RESULT_BACKEND = os.environ.get('REDIS_URL')
+CELERY_ACCEPT_CONTENT = ['json']
+
+
+# Twitter
+
+TWITTER_KEY = os.environ.get('TWITTER_KEY')
+TWITTER_SECRET = os.environ.get('TWITTER_SECRET')
+TWITTER_ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN')
+TWITTER_TOKEN_SECRET = os.environ.get('TWITTER_TOKEN_SECRET')
