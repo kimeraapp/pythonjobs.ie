@@ -3,11 +3,24 @@ import random
 from django.core.mail import send_mail
 from django.shortcuts import render
 from django.template import loader
+import tweepy
+from pythonjobs import settings
 
 
 class Twitter(object):
-    def tweet(msg):
-        print(msg)
+        def __init__(self):
+            self.consumer_key = settings.TWITTER_KEY
+            self.consumer_secret = settings.TWITTER_SECRET
+            self.token = settings.TWITTER_ACCESS_TOKEN
+            self.token_secret = settings.TWITTER_TOKEN_SECRET
+            auth = tweepy.OAuthHandler(self.consumer_key,
+                                       self.consumer_secret)
+            auth.set_access_token(self.token, self.token_secret)
+
+            self.api = tweepy.API(auth)
+
+        def tweet(self, message):
+            return api.update_status(status=message)
 
 
 def generate_token(length=60):
