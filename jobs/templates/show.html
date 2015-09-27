@@ -5,7 +5,7 @@
     <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand" href="/">
-          <img class="logo" src="https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fc%2Fc3%2FPython-logo-notext.svg%2F1024px-Python-logo-notext.svg.png&f=1" />
+          <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/110px-Python-logo-notext.svg.png" />
           <span class="logo blue">PythonJobs</span><span class="logo yellow">.ie</spa>
         </a>
       </div>
@@ -46,13 +46,19 @@
       <div class="clearfix"></div>
 
       <h3 class="bold border title">Apply</h3>
-      <p>
+      {% if job.external_link %}
+        <p>
           <a class="btn btn-sm btn-primary" href="{{ job.external_link }}" target="_blank">
               External link
           </a>
-      </p>
+        </p>
+      {% endif %}
+
       <p>Send an email to <a class="color" href="mailto:{{ job.email }}">{{ job.email }}</a></p>
 
+      {% if job.phone %}
+        <span class="bold">Phone:</span> {{ job.phone }}<br />
+      {% endif %}
     </div>
   </div>
 </div>
