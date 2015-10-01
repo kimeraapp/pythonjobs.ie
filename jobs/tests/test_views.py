@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.test import Client
 from django.core.urlresolvers import reverse
 from django.forms.models import model_to_dict
+from model_mommy import mommy
 from jobs.models import Job
 from jobs.views import JobsFeed
 
@@ -29,6 +30,11 @@ class TestJob(TestCase):
     def test_index_template(self):
         response = self.client.get("/")
         self.assertTemplateUsed(response, "index.html")
+
+    def test_index_list_active_jobs(self):
+        job = mommy.make(Job, status=0)
+        response = self.client.get(reverse("job-home"))
+        self.assertEquals(len(response.context["jobs"]), 1)
 
     def test_show_returns_200(self):
         response = self.client.get(reverse("job-show", args=[self.job.pk]))
