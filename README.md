@@ -64,12 +64,32 @@ Always create a new branch for the new feature/issue.
 ```
 $ git checkout -b feature-name-branch
 ```
-Then make your changes and commit. Last of the commit could include the issue number in the message, like: fixes #1 or closes #1.
+Then make your changes and commit. Last of the commit could include the issue number in the message, like: fixes #1 or closes #1. Add yourself to the CONTRIBUTORS file.
 ```
 $ git commit -am 'descriptive message about the issue'
+```
+Please check always that he tests are running before pushing anything, you might consider to fix it before making the pull request. Add tests when possible for your own code and test that the app works accordingly.
+```
+$ ./manage.py test
 ```
 Push the branch to your Github account.
 ```
 $ git push origin feature-name-branch
 ```
-Now go to Github and make the pull request. Add a descriptive comment and you can include 'Resolve #1' to close the issue when the pull request is merged.
+To keep sync with the main repository you will have to add it as a second repository. This will only be available for pulling the latest changes.
+```
+$ git remote add upstream https://github.com/kimeraapp/pythonjobs.ie.git
+$ git pull upstream master
+```
+Now go to Github and make the pull request. Add a descriptive comment and you can include 'Resolve #1' to close the issue when the pull request is merged. 
+
+If you the pull request has conflicts you have to pull from the upstream, fix them and just push to your remote branch again. There is no need to make another pull request.
+
+###Code styling
+PEP8 is used in this project. Please make sure you follow the documentation: https://www.python.org/dev/peps/pep-0008/.
+
+4 spaces are used for Python identation and 2 for the HTML templates and CSS.
+
+Setup your line limit to 80 chars.
+
+Instead of comments use descriptive names and keep consistency with the current style. You can explain better either in the commit message or the pull request description, but the code should be easy to review. When in doubt, please feel free to comment on the issue.
