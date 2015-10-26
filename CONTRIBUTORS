@@ -5,7 +5,7 @@ The fields are: name (N), email (E), website (W) and city/country (C).
 ---------------------
 
 N: Edgar Latorre
-E: 
+E:
 W: edgarlatorre.com.br
 C: Dublin/Ireland
 *: Maintainer
@@ -17,10 +17,16 @@ C: Dublin/Ireland
 *: Maintainer
 
 N: Sidimar Gobbo
-E: 
+E:
 W: sidimar.com
 C: Dublin/Ireland
 *: Maintainer
+
+N: Allen Thomas Varghese
+E: allentv4u@gmail.com
+W: ie.linkedin.com/in/allentv
+C: Dublin/Ireland
+*: Contributor
 
 N: Jorge Barata
 E: contact@jorgebg.com
