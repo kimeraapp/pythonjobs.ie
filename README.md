@@ -1,5 +1,10 @@
 # pythonjobs.ie
-Python jobs: find or post Python related jobs without registration.
+Python Jobs Ireland: find or post Python related jobs without registration.
+
+pythonjobs.ie is made for and by Python Ireland community members. It is a free
+of charge site useful for recruiters and developers, please feel free to
+contribute (read the instructions for development and our code of conduct) with
+code or opening any issue you can find.
 
 [![Build Status](https://travis-ci.org/kimeraapp/pythonjobs.ie.svg?branch=master)](https://travis-ci.org/kimeraapp/pythonjobs.ie)
 
