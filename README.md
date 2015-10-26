@@ -13,29 +13,38 @@ Python jobs: find or post Python related jobs without registration.
 
 If you don't have Python you can follow the instructions from https://www.python.org/downloads/.
 
-First, create an environment. 
+Make sure to install Python 3.x instead of the default 2.x
+
+First, create an environment.
 ```
 $ virtualenv env
+```
+If you have both python 2.x and 3.x versions, use the below command.
+```
+$ virtualenv --python=/usr/bin/python3 env
 ```
 You can activate it.
 ```
 $ source ./env/bin/activate
 ```
+Verify the version of python from the 1st line by the below command.
+```
+$ python
+Python 2.7.6 (default, Jun 22 2015, 17:58:13)
+[GCC 4.8.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
 When not using you can deactivate it.
 ```
 $ deactivate
 ```
-###Django and PostgreSQL
+###PostgreSQL
 
-Install Django.
-
-```
-$ pip install django
-```
 Install Python PostgreSQL dependencies.
 ```
-$ apt-get install libpq-dev python-dev
 $ apt-get install postgresql postgresql-contrib
+$ apt-get install libpq-dev python3-dev
 ```
 Create pythonjobs database.
 ```
@@ -45,6 +54,23 @@ $ createdb pythonjobs
 Export database.
 ```
 $ export DATABASE_URL=postgres://development:development@127.0.0.1:5432/pythonjobs
+```
+
+###Users
+Create an user in POSTGRES for development
+```
+$ sudo su - postgres
+$ psql
+
+postgres=# CREATE USER development WITH PASSWORD 'development' CREATEDB;
+postgres=# \du
+                              List of roles
+Role name  |                   Attributes                   | Member of
+-------------+------------------------------------------------+-----------
+development | Create DB                                      | {}
+postgres    | Superuser, Create role, Create DB, Replication | {}
+postgres=# \q
+$ exit
 ```
 
 ###Project
@@ -81,7 +107,7 @@ To keep sync with the main repository you will have to add it as a second reposi
 $ git remote add upstream https://github.com/kimeraapp/pythonjobs.ie.git
 $ git pull upstream master
 ```
-Now go to Github and make the pull request. Add a descriptive comment and you can include 'Resolve #1' to close the issue when the pull request is merged. 
+Now go to Github and make the pull request. Add a descriptive comment and you can include 'Resolve #1' to close the issue when the pull request is merged.
 
 If you the pull request has conflicts you have to pull from the upstream, fix them and just push to your remote branch again. There is no need to make another pull request.
 
