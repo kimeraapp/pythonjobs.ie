@@ -2,3 +2,4 @@
 .ropeproject/
 staticfiles/
 .coverage
+.pythonjobs.ie_env/
