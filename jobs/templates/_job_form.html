@@ -88,16 +88,18 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-9 col-sm-offset-2">
+      <div class="col-sm-offset-3 col-sm-9">
         <p><strong><span class="text-danger">*</span>A valid email is required to edit the job details.</strong></p>
       </div>
     </div>
+    {% if job.id %}
     <div class="form-group">
       <label for="status" class="col-sm-3 control-label">Published</label>
       <div class="col-sm-9">
-        <input type="checkbox" class="form-control" name="status" id="status" value="{{ job.status }}">
+        <input type="checkbox" name="status" id="status" value="{{ job.status }}">
       </div>
     </div>
+    {% endif %}
     <div class="row">
       <div class="col-sm-9 col-sm-offset-2">
         <input class="btn btn-primary" type="submit" value="Let's GO">

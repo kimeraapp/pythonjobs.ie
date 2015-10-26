@@ -2,5 +2,5 @@
 .ropeproject/
 staticfiles/
 .coverage
-.pythonjobs.ie_env/
+pythonjobs.ie_env/
 db.sqlite
