@@ -39,39 +39,6 @@ When not using you can deactivate it.
 ```
 $ deactivate
 ```
-###PostgreSQL
-
-Install Python PostgreSQL dependencies.
-```
-$ apt-get install postgresql postgresql-contrib
-$ apt-get install libpq-dev python3-dev
-```
-Create pythonjobs database.
-```
-$ sudo su - postgres
-$ createdb pythonjobs
-```
-Export database.
-```
-$ export DATABASE_URL=postgres://development:development@127.0.0.1:5432/pythonjobs
-```
-
-###Users
-Create an user in POSTGRES for development
-```
-$ sudo su - postgres
-$ psql
-
-postgres=# CREATE USER development WITH PASSWORD 'development' CREATEDB;
-postgres=# \du
-                              List of roles
-Role name  |                   Attributes                   | Member of
--------------+------------------------------------------------+-----------
-development | Create DB                                      | {}
-postgres    | Superuser, Create role, Create DB, Replication | {}
-postgres=# \q
-$ exit
-```
 
 ###Project
 
