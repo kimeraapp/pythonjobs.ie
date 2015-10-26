@@ -19,9 +19,21 @@ First, create an environment.
 ```
 $ virtualenv env
 ```
+If you have both python 2.x and 3.x versions, use the below command.
+```
+$ virtualenv --python=/usr/bin/python3 env
+```
 You can activate it.
 ```
 $ source ./env/bin/activate
+```
+Verify the version of python from the 1st line by the below command.
+```
+$ python
+Python 2.7.6 (default, Jun 22 2015, 17:58:13)
+[GCC 4.8.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
 ```
 When not using you can deactivate it.
 ```

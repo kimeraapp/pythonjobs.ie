@@ -3,3 +3,4 @@
 staticfiles/
 .coverage
 .pythonjobs.ie_env/
+db.sqlite
