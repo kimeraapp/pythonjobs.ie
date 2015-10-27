@@ -25,8 +25,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'change-it')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False)
 
-ALLOWED_HOSTS = ['localhost', 'pythonjobs.herokuapp.com', 'pythonjobs.ie']
-
+ALLOWED_HOSTS = [
+    'localhost',
+    'pythonjobs.herokuapp.com',
+    'pythonjobs.ie',
+    'www.pythonjobs.ie']
 
 # Application definition
 
