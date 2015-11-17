@@ -3,6 +3,7 @@ from django.db import models
 from django.core import mail
 from django.core.urlresolvers import reverse
 from django.utils import timezone
+from datetime import timedelta
 from unittest.mock import patch
 from model_mommy import mommy
 from jobs.models import Job
@@ -84,3 +85,13 @@ class TestJob(TestCase):
     def test_save_tweets_about_job(self):
         self.job.save()
         self.assertTrue(self.mock_tweet.called)
+
+    def test_get_active_jobs_return_jobs_status_one(self):
+        self.job.save()
+        jobs = Job.get_actives()
+        self.assertEqual(jobs[0].status, 1)
+
+    def test_get_active_jobs_return_jobs_created_at_less_than_two_months(self):
+        now = timezone.now() + timedelta(days=61)
+        self.job.save()
+        self.assertEqual(len(Job.get_actives(now)), 0)

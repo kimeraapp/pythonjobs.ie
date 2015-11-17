@@ -1,3 +1,5 @@
+from datetime import timedelta
+from django.utils import timezone
 from django.db import models
 from django.db.models import signals
 from django.utils.html import strip_tags
@@ -50,6 +52,12 @@ class Job(models.Model):
 
     def get_absolute_url(self):
         return reverse('job-show', args=[str(self.id)])
+
+    @staticmethod
+    def get_actives(now=timezone.now()):
+        limit = now - timedelta(days=60)
+        return Job.objects.filter(
+            status=1, created_at__gt=limit).order_by("-created_at").all()
 
 
 def token_pre_save(signal, instance, sender, **kwargs):

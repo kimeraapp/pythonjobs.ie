@@ -8,7 +8,7 @@ class IndexView(generic.ListView):
     model = Job
     template_name = "index.html"
     context_object_name = "jobs"
-    queryset = Job.objects.filter(status=1).order_by("-created_at").all()
+    queryset = Job.get_actives()
 
 
 class ShowView(generic.DetailView):
