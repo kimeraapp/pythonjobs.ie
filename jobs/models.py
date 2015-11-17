@@ -7,6 +7,7 @@ from django.utils.text import slugify
 from django.core.urlresolvers import reverse
 from pythonjobs.services import generate_token, send_confirmation_mail
 from jobs.tasks import tweet
+from pythonjobs import settings
 
 
 class Job(models.Model):
@@ -70,7 +71,7 @@ def token_pre_save(signal, instance, sender, **kwargs):
 
 
 def mail_post_save(signal, instance, sender, created, **kwargs):
-    if created:
+    if created and settings.DEBUG == False:
         send_confirmation_mail(instance)
         tweet.apply_async(args=(instance.get_absolute_url(),),
                           countdown=10, serializer='json')
