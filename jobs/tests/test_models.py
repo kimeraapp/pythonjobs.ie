@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.test.utils import override_settings
 from django.db import models
 from django.core import mail
 from django.core.urlresolvers import reverse
@@ -47,6 +48,11 @@ class TestJob(TestCase):
         self.job.save()
         self.assertEquals(len(mail.outbox), 1)
 
+    @override_settings(DEBUG=True)
+    def test_do_not_send_email_if_debug_is_true(self):
+        self.job.save()
+        self.assertEquals(len(mail.outbox), 0)
+
     def test_do_not_send_email_after_update(self):
         self.job.save()
         self.job.save()
@@ -85,6 +91,11 @@ class TestJob(TestCase):
     def test_save_tweets_about_job(self):
         self.job.save()
         self.assertTrue(self.mock_tweet.called)
+
+    @override_settings(DEBUG=True)
+    def test_save_does_not_tweet_about_job_if_debug_is_true(self):
+        self.job.save()
+        self.assertFalse(self.mock_tweet.called)
 
     def test_get_active_jobs_return_jobs_status_one(self):
         self.job.save()
