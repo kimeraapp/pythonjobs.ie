@@ -5,9 +5,9 @@ from django.db.models import signals
 from django.utils.html import strip_tags
 from django.utils.text import slugify
 from django.core.urlresolvers import reverse
+from django.conf import settings
 from pythonjobs.services import generate_token, send_confirmation_mail
 from jobs.tasks import tweet
-from pythonjobs import settings
 
 
 class Job(models.Model):
