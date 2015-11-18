@@ -1,7 +1,6 @@
 import string
 import random
 from django.core.mail import send_mail
-from django.shortcuts import render
 from django.template import loader
 import tweepy
 from pythonjobs import settings
