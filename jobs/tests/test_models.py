@@ -1,6 +1,5 @@
 from django.test import TestCase
 from django.test.utils import override_settings
-from django.db import models
 from django.core import mail
 from django.core.urlresolvers import reverse
 from django.utils import timezone
@@ -32,8 +31,7 @@ class TestJob(TestCase):
         self.assertEquals(len(Job.objects.all()), 1)
 
     def test_external_link_not_required(self):
-        job = mommy.make(Job, external_link="")
-
+        mommy.make(Job, external_link="")
         self.assertEquals(len(Job.objects.all()), 1)
 
     def test_token_is_added_pre_saving(self):

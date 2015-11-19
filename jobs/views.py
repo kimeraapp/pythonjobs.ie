@@ -1,6 +1,7 @@
 from django.views import generic
 from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404
 from jobs.models import Job
 
 
@@ -15,6 +16,10 @@ class ShowView(generic.DetailView):
     model = Job
     template_name = "show.html"
     context_object_name = "job"
+
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get(self.pk_url_kwarg, None)
+        return get_object_or_404(Job, pk=pk, status=1)
 
 
 class NewView(generic.CreateView):

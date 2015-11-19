@@ -32,7 +32,7 @@ class TestJob(TestCase):
         self.assertTemplateUsed(response, "index.html")
 
     def test_index_list_active_jobs(self):
-        job = mommy.make(Job, status=0)
+        mommy.make(Job, status=0)
         response = self.client.get(reverse("job-home"))
         self.assertEquals(len(response.context["jobs"]), 1)
 
@@ -43,6 +43,11 @@ class TestJob(TestCase):
     def test_show_template(self):
         response = self.client.get(reverse("job-show", args=[self.job.pk]))
         self.assertTemplateUsed(response, "show.html")
+
+    def test_show_inactive_job_returns_404(self):
+        job = mommy.make(Job, status=0)
+        response = self.client.get(reverse("job-show", args=[job.pk]))
+        self.assertEquals(response.status_code, 404)
 
     def test_new_returns_200(self):
         response = self.client.get(reverse("job-new"))
