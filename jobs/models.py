@@ -56,7 +56,7 @@ class Job(models.Model):
 
     @staticmethod
     def get_actives(now=timezone.now()):
-        limit = now - timedelta(days=60)
+        limit = now - timedelta(days=120)
         return Job.objects.filter(
             status=1, created_at__gt=limit).order_by("-created_at").all()
 
