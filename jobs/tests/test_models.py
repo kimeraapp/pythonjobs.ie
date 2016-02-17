@@ -100,7 +100,7 @@ class TestJob(TestCase):
         jobs = Job.get_actives()
         self.assertEqual(jobs[0].status, 1)
 
-    def test_get_active_jobs_return_jobs_created_at_less_than_two_months(self):
-        now = timezone.now() + timedelta(days=61)
+    def test_get_active_jobs_return_jobs_created_at_less_than_four_months(self):
+        now = timezone.now() + timedelta(days=121)
         self.job.save()
         self.assertEqual(len(Job.get_actives(now)), 0)
