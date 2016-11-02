@@ -1,5 +1,14 @@
 from django.conf.urls import url
+from django.views.generic import TemplateView
+from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import GenericSitemap
 from jobs.views import IndexView, ShowView, NewView, EditView, JobsFeed
+from .models import Job
+
+info_job = {
+    'queryset': Job.get_actives(),
+    'data_field': 'modified_at',
+}
 
 urlpatterns = [
     url(r'^jobs/new$', NewView.as_view(), name='job-new'),
@@ -8,4 +17,11 @@ urlpatterns = [
         EditView.as_view(slug_field="token"), name='job-edit'),
     url(r'^$', IndexView.as_view(), name='job-home'),
     url(r'^rss/$', JobsFeed()),
+    url(r'^robots\.txt$',
+        TemplateView.as_view(template_name='robots.txt', content_type='text/plain'),
+        name="robots"),
+    url(r'^sitemap\.xml$',
+        sitemap,
+        {'sitemaps': {'jobs': GenericSitemap(info_job, priority=0.6)}},
+        name='django.contrib.sitemaps.views.sitemap'),
 ]
