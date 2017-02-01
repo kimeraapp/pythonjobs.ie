@@ -54,9 +54,8 @@ $ git clone git@github.com:MYUSERNAME/pythonjobs.ie.git
 $ cd pythonjobs.ie
 $ pip install -r requirements.txt
 $ ./manage.py migrate
-$ ./manage.py runserver 0.0.0.0:8000
+$ ./manage.py runserver 127.0.0.1:8000
 ```
-
 ###Development guidelines
 Always create a new branch for the new feature/issue.
 ```
