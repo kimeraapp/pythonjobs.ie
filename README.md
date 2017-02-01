@@ -66,7 +66,7 @@ Then make your changes and commit. Last of the commit could include the issue nu
 ```
 $ git commit -am 'descriptive message about the issue'
 ```
-Please check always that he tests are running before pushing anything, you might consider to fix it before making the pull request. Add tests when possible for your own code and test that the app works accordingly.
+Please check always that the tests are running before pushing anything, you might consider to fix it before making the pull request. Add tests when possible for your own code and test that the app works accordingly.
 ```
 $ ./manage.py test
 ```
