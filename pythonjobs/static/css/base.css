@@ -69,13 +69,23 @@ body  {
   font-weight: 600;
   background-color: #3770a0;
 }
-.btn.btn-primary:hover  {
+.btn.btn-primary:hover {
+    box-shadow: 0 -3px rgba(0, 0, 0, 0.25) inset;
+}
+.jumbotron .btn-warning {
+  margin-top: 30px;
+  font-size: 24px;
+}
+.btn.btn-warning, .btn.btn-warning:hover  {
+  padding: 11px 55px;
+  font-weight: 600;
+}
+.btn.btn-warning:hover {
     box-shadow: 0 -3px rgba(0, 0, 0, 0.25) inset;
 }
 .btn-group-sm > .btn, .btn-sm {
   font-size: 16px;
 }
-
 
 
 

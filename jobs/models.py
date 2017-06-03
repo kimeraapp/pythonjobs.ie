@@ -24,7 +24,7 @@ class Job(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     modified_at = models.DateTimeField(auto_now=True, editable=False)
     status = models.BooleanField(default=1)
-
+    report_clicks = models.IntegerField(default=0)	
     cities = (
         'Antrim', 'Armagh', 'Carlow', 'Cavan', 'Clare', 'Cork', 'Derry',
         'Donegal', 'Down', 'Dublin', 'Fermanagh', 'Galway', 'Kerry',

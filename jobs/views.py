@@ -3,6 +3,9 @@ from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 from jobs.models import Job
+from django.shortcuts import redirect
+from django.core.mail import send_mail
+
 
 
 class IndexView(generic.ListView):
@@ -80,3 +83,97 @@ class JobsFeed(Feed):
 
     def item_link(self, job):
         return reverse('job-show', args=[job.pk])
+		
+		
+
+def report(self,pk, **kwargs):
+	job= Job.objects.get(id=pk)
+	job.report_clicks = job.report_clicks + 1
+	job.save()	
+	###Now checking after for number of clicks###
+	if job.report_clicks == 5 :
+		"""print("5 reports are done, sending email")
+		send_mail(
+		'Subject here',
+		'Here is the message.',
+		'ozanakita@gmail.com',
+		['ozanakita@gmail.com'],
+		fail_silently=False,
+		)"""
+		print("In 5 reports")
+		
+	return redirect('job-home')
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	"""
+class ReportView(generic.ListView):
+    
+	model = Job
+	template_name = "index.html"
+	context_object_name = "jobs"
+	queryset = Job.get_actives()
+	def report(self):
+	  job= Job.objects.get(id=pk)
+	  job.report_clicks = job.report_clicks + 1
+	  job.save()	
+	  ###Now checking after implementation###
+	  if job.report_clicks == 5 :
+	      print("5 reports are done, sending email")
+		  ##Send Email##
+	  return redirect('job-new')
+	"""
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
