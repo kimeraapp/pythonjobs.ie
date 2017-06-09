@@ -90,90 +90,19 @@ def report(self,pk, **kwargs):
 	job= Job.objects.get(id=pk)
 	job.report_clicks = job.report_clicks + 1
 	job.save()	
-	###Now checking after for number of clicks###
-	if job.report_clicks == 5 :
-		"""print("5 reports are done, sending email")
-		send_mail(
-		'Subject here',
-		'Here is the message.',
-		'ozanakita@gmail.com',
-		['ozanakita@gmail.com'],
-		fail_silently=False,
-		)"""
-		print("In 5 reports")
-		
+	if job.report_clicks == 5:
+	    mail_subject = "Job for the position of {} was reported 5 times!!".format(job.position)
+	    mail_content = """
+                          Hello!
+
+                          The job posted for the position of {},  Location :  {} , has ben reported 5 times till now.
+
+                          Please take appropriate action.
+
+                          Thanks,
+                          Python Jobs Ireland
+
+                          """.format(job.position,job.location)
+	    mail_sender = 'job-reports@pythonjobs.com'
+	    send_mail(mail_subject, mail_content, mail_sender, [job.email])
 	return redirect('job-home')
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	"""
-class ReportView(generic.ListView):
-    
-	model = Job
-	template_name = "index.html"
-	context_object_name = "jobs"
-	queryset = Job.get_actives()
-	def report(self):
-	  job= Job.objects.get(id=pk)
-	  job.report_clicks = job.report_clicks + 1
-	  job.save()	
-	  ###Now checking after implementation###
-	  if job.report_clicks == 5 :
-	      print("5 reports are done, sending email")
-		  ##Send Email##
-	  return redirect('job-new')
-	"""
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
