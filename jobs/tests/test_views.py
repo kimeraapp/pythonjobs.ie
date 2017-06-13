@@ -18,7 +18,7 @@ class TestJob(TestCase):
         self.job.description = "Testing"
         self.job.email = "test@test.com"
         self.job.location = "Testing"
-        self.job.report_clicks = 5
+        self.job.report_clicks = 4
         self.job.save()
 
     def testDown(self):
