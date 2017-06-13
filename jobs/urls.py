@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.views.generic import TemplateView
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import GenericSitemap
-from jobs.views import IndexView, ShowView, NewView, EditView, JobsFeed #, ReportView
+from jobs.views import IndexView, ShowView, NewView, EditView, JobsFeed
 from .models import Job
 from . import views
 
@@ -25,6 +25,5 @@ urlpatterns = [
         sitemap,
         {'sitemaps': {'jobs': GenericSitemap(info_job, priority=0.6)}},
         name='django.contrib.sitemaps.views.sitemap'),
-	#url(r'^jobs/(?P<pk>[0-9]+)/report$', ReportView.as_view, name='report_click'),
 	url(r'^jobs/(?P<pk>[0-9]+)/report$', views.report, name='report_click'),
 ]

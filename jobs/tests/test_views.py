@@ -18,6 +18,7 @@ class TestJob(TestCase):
         self.job.description = "Testing"
         self.job.email = "test@test.com"
         self.job.location = "Testing"
+        self.job.report_clicks = 5
         self.job.save()
 
     def testDown(self):
@@ -70,7 +71,11 @@ class TestJob(TestCase):
     def test_edit_template(self):
         response = self.client.get(reverse("job-edit", args=[self.job.token]))
         self.assertTemplateUsed(response, "edit.html")
-
+		
+    def test_report_returns_200(self):
+        response = self.client.get(reverse("report_click", args=[self.job.pk]))
+        self.assertEquals(response.status_code, 302)
+	
     def test_feed_items_returns_not_empty_list(self):
         self.assertNotEqual(len(JobsFeed.items(self)), 0)
 

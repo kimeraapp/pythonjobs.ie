@@ -7,7 +7,6 @@ from django.shortcuts import redirect
 from django.core.mail import send_mail
 
 
-
 class IndexView(generic.ListView):
     model = Job
     template_name = "index.html"
