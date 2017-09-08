@@ -16,7 +16,7 @@ code or opening any issue you can find.
 
 ###Environment
 
-If you don't have Python you can follow the instructions from https://www.python.org/downloads/.
+If you don't have Python you can follow the instructions from https://www.python.org/downloads/ .
 
 Make sure to install Python 3.x instead of the default 2.x
 
@@ -35,8 +35,8 @@ $ source ./env/bin/activate
 Verify the version of python from the 1st line by the below command.
 ```
 $ python
-Python 2.7.6 (default, Jun 22 2015, 17:58:13)
-[GCC 4.8.2] on linux2
+Python 3.6.0 (default, Jan 13 2017, 00:00:00) 
+[GCC 4.8.4] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
@@ -83,7 +83,7 @@ Now go to Github and make the pull request. Add a descriptive comment and you ca
 If you the pull request has conflicts you have to pull from the upstream, fix them and just push to your remote branch again. There is no need to make another pull request.
 
 ###Code styling
-PEP8 is used in this project. Please make sure you follow the documentation: https://www.python.org/dev/peps/pep-0008/.
+PEP8 is used in this project. Please make sure you follow the documentation: https://www.python.org/dev/peps/pep-0008/ .
 
 4 spaces are used for Python identation and 2 for the HTML templates and CSS.
 
