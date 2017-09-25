@@ -27,6 +27,7 @@ DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = [
     'localhost',
+    '127.0.0.1',
     'pythonjobs.herokuapp.com',
     'pythonjobs.ie',
     'www.pythonjobs.ie']
