@@ -12,9 +12,9 @@ code or opening any issue you can find.
 
 ![pythonjobs_ie](https://cloud.githubusercontent.com/assets/6503912/10180230/5493706a-6703-11e5-8c31-39b93e2d3fd9.png)
 
-##Development
+## Development
 
-###Environment
+### Environment
 
 If you don't have Python you can follow the instructions from https://www.python.org/downloads/.
 
@@ -45,7 +45,7 @@ When not using you can deactivate it.
 $ deactivate
 ```
 
-###Project
+### Project
 
 Fork the repository and clone into you local computer.
 
@@ -56,7 +56,7 @@ $ pip install -r requirements.txt
 $ ./manage.py migrate
 $ ./manage.py runserver 127.0.0.1:8000
 ```
-###Development guidelines
+### Development guidelines
 Always create a new branch for the new feature/issue.
 ```
 $ git checkout -b feature-name-branch
@@ -82,7 +82,7 @@ Now go to Github and make the pull request. Add a descriptive comment and you ca
 
 If you the pull request has conflicts you have to pull from the upstream, fix them and just push to your remote branch again. There is no need to make another pull request.
 
-###Code styling
+### Code styling
 PEP8 is used in this project. Please make sure you follow the documentation: https://www.python.org/dev/peps/pep-0008/.
 
 4 spaces are used for Python identation and 2 for the HTML templates and CSS.
