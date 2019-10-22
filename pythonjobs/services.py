@@ -3,6 +3,8 @@ import random
 from django.core.mail import send_mail
 from django.template import loader
 import tweepy
+
+from jobs.models import Job
 from pythonjobs import settings
 
 
@@ -24,7 +26,10 @@ class Twitter(object):
 
 def generate_token(length=60):
     chars = string.ascii_uppercase + string.digits
-    return ''.join(random.choice(chars) for _ in range(length))
+    token = ''.join(random.choice(chars) for _ in range(length))
+    while Job.objects.filter(token=token).exists():
+        token = generate_token()
+    return token
 
 
 def send_confirmation_mail(job):
