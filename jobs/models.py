@@ -6,7 +6,6 @@ from django.utils.html import strip_tags
 from django.utils.text import slugify
 from django.core.urlresolvers import reverse
 from django.conf import settings
-from pythonjobs.services import generate_token, send_confirmation_mail
 from jobs.tasks import tweet
 
 
@@ -62,19 +61,21 @@ class Job(models.Model):
 
 
 def token_pre_save(signal, instance, sender, **kwargs):
-    if not instance.token or Job.objects.filter(token=instance.token).exclude(id=instance.id):
-        token = generate_token()
-        while Job.objects.filter(token=token):
-            token = generate_token()
-        instance.token = token
+    if not instance.token or Job.objects.filter(token=instance.token).exclude(id=instance.id).exists():
+        from pythonjobs.services import generate_token  # avoid circular dependencies
+        instance.token = generate_token()
         instance.status = 1
 
 
 def mail_post_save(signal, instance, sender, created, **kwargs):
-    if created and settings.DEBUG == False:
+    if created and not settings.DEBUG:
+        from pythonjobs.services import send_confirmation_mail  # avoid circular dependencies
         send_confirmation_mail(instance)
-        tweet.apply_async(args=(instance.get_absolute_url(),),
-                          countdown=10, serializer='json')
+        tweet.apply_async(
+            args=(instance.get_absolute_url(),),
+            countdown=10,
+            serializer='json',
+        )
 
 signals.pre_save.connect(token_pre_save, sender=Job)
 signals.post_save.connect(mail_post_save, sender=Job)
