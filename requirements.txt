@@ -2,7 +2,7 @@ dj-database-url==0.3.0
 Django==1.8.4
 django-toolbelt==0.0.1
 gunicorn==19.3.0
-psycopg2==2.6
+psycopg2==2.7.7
 static3==0.6.1
 whitenoise==2.0.2
 model-mommy==1.2.5
