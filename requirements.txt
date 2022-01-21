@@ -11,5 +11,5 @@ redis==2.10.3
 simplejson==3.8.0
 django-tinymce
 celery==3.1.18
-ipython==4.0.0
+ipython==7.16.3
 tweepy==3.4.0
